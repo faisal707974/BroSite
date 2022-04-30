@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'brotofont';
+    src: url(../../assets/fonts/ProgressPersonalUse-EaJdz.ttf) format('truetype');
+}
+.logobase{
+    width: 300px;
+    color: white;
+}
+.head{
+    font-family: 'brotofont';
+}
+.head h2{
+    font-size: 30pt;
+    margin:0;
+}
+.bro{
+    /* background-color: white; */
+}
+.tag{
+    position: relative;
+    top: -10px;
+    left: -1px;
+    font-family:monospace;
+    font-size: 10pt;
+    font-weight: bold;
+    transform: scaleX(1.7);
+    width: 100%;
+}
+.tag p{
+    font-stretch: expanded;
+}
+

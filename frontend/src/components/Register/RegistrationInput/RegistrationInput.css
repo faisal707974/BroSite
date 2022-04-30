@@ -1,0 +1,11 @@
+.custom-input input{
+    margin-bottom: 30px;
+    border:none;
+    border-bottom: 1px solid black;
+}
+
+.form-control:focus{
+    box-shadow: none!important;
+    border-color: #ab653a!important;
+    border-bottom: 3px solid;
+}

@@ -1,0 +1,34 @@
+.modal-body{
+    background:url('../../assets/images/6.jpg');
+    background-size: cover;
+    height: 350px;
+    width: 700px;
+    display: flex;
+    padding:0rem !important;
+    border-radius: 25px;
+}
+.modal-content{
+    border-radius: 25px!important;
+    margin-top: 100px;
+    width: 700px!important;
+}
+.modal-backdrop{
+    /* background-color: red!important; */
+}
+.modal-dialog{
+    max-width: 700px!important;
+}
+.login-form{
+    width: 350px;
+    right: 0px;
+}
+
+.login-form input{
+    border: none;
+    outline: none;
+    background: none;
+    border-bottom: 2px solid white;
+    color: white;
+    width: 90%;
+    margin-bottom: 10%;
+}

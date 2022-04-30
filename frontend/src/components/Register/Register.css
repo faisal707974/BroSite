@@ -1,0 +1,54 @@
+.Register {
+    background:url('https://devblogs.microsoft.com/xamarin/wp-content/uploads/sites/44/2020/03/CssSample1.png');
+    background-size: cover;
+}
+.Register .registration-form {
+    width: 80%;
+}
+.Register .form-div {
+    border-radius: 25px 25px 25px 25px;
+    background-color: rgb(255, 255, 255);
+    margin-bottom:100px;
+}
+.Register .header{
+    height: 100px;
+}
+.Register input,.Register textarea{
+    margin-bottom: 30px;
+    border:none;
+    border-bottom: 1px solid black;
+}
+.Register textarea{
+    height: 100px!important;
+    resize: none;
+    max-lines: 3;   
+}
+.form-control:focus{
+    box-shadow: none!important;
+    border-color: #7ae54b!important;
+    border-bottom: 3px solid ;
+}
+.header .logo{
+    margin: 20px;
+}
+.form-div h3{
+    color:#ab653a;
+    font-size: 16pt;
+    font-weight: bold;
+}
+.Register .profilePic{
+    position: absolute;
+    top: 30px;
+    right: 300px;
+}
+.Register hr{
+    border-top: 2px dashed #bbb;
+
+}
+.Register p{
+    display: inline;
+}
+.Register .submit-button{
+    display: inline;
+    margin-left: 260px;
+}

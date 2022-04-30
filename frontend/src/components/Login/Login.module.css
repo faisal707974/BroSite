@@ -1,0 +1,78 @@
+.loginRedir p{
+    color: white;
+}
+
+.loginBox{
+    height: 500px;
+    width: 500px;
+    border-radius: 25px;
+    position: absolute;
+    padding: 20px;
+}
+
+.loginHead{
+    margin-bottom:30px;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+.loginForm input{
+    outline: none;
+    border: none;
+    background: none;
+    padding-left: 44px;
+    width: 90%;
+    border-bottom: 2px solid white;
+    height: 60px;
+    color: white;
+}
+.loginForm i{
+    position: relative;
+    left: 20px;
+    color: white;
+}
+.remember{
+    padding: 30px;
+    padding-left: 20px;
+    height: 40px;
+    display: flex;
+    justify-content: left;
+}
+.remember label{
+    color: white;
+}
+.remember input{
+    width: 17px;
+    height: 22px;
+    margin-right: 10px;
+    color: black;
+}
+.remember input:checked{
+    color: black;
+}
+a{
+    color: gray;
+    margin-left: auto;
+    text-decoration: none;
+}
+.submitDiv{
+    display: flex;
+    justify-content: center;
+}
+.submitButton{
+    margin-top: 30px;
+    border: none;
+    /* background: none; */
+    height: 40px;
+    width: 80%;
+    border-radius: 25px;
+}
+.errormsg{
+    color: red;
+    padding-left: 13px ;
+    height: 0px;
+}
+.inputError{
+    border-bottom: 2px solid red !important;
+    color: green;
+}
