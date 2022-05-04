@@ -9,3 +9,14 @@
     border-color: #ab653a!important;
     border-bottom: 3px solid;
 }
+.reqStar{
+    color:red;
+}
+.validation-error{
+    color: red;
+    position: relative;
+    top: -30px;
+}
+.error-style{
+    border-bottom: 1px solid red!important;
+}

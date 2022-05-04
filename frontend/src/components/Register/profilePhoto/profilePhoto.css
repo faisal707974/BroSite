@@ -20,30 +20,34 @@
 }
 .PhotoUpload:hover .hoverText{
     display: flex;
+    visibility: visible;
+    /* transform: translateY(-10px); */
+    height: 80%;
     /* background: url('https://cdn.pixabay.com/photo/2016/01/03/00/43/upload-1118929_1280.png'); */
-
 }
 .PhotoUpload svg{
     height: 70px;
     width: 70px;
     color: #d9480e;
-    transition: 0.3s;
 }
 .PhotoUpload .hoverText{
-    background-color: #d755216b;
+    transition: height 0.5s ease-in-out;
+    /* background-color: #d755216b; */
+    background-image: linear-gradient(360deg, #ab653a, transparent);
     width: 100%;
-    height: 50%;
-    margin-top: 50%;
+    height: 30%;
+    /* margin-top: 33%; */
     border-radius: 0 0 150px 150px ;
-    position: absolute;
-    display: flex;
+    /* position: absolute; */
     align-items: center;
     justify-content: center;
-    display: none;
+    /* display: none; */
+    margin-top: auto;
+    visibility: hidden;
 }
 
 .PhotoUpload .hoverText h5{
     position: relative;
-    top: -10px;
-    color: #d9480e;
+    top: 20px;
+    color: #fff;
 }

@@ -8,14 +8,15 @@
 }
 .head{
     font-family: 'brotofont';
+    position: relative;
 }
 .head h2{
     font-size: 30pt;
     margin:0;
 }
-.bro{
-    /* background-color: white; */
-}
+/* .bro{
+    color: #6da4f2;
+} */
 .tag{
     position: relative;
     top: -10px;
@@ -28,5 +29,13 @@
 }
 .tag p{
     font-stretch: expanded;
+}
+.bgBlock{
+    background-color: white;
+    height: 40px;
+    width: 50px;
+    display: inline-block;
+    z-index: 0;
+    position: absolute;
 }
 

@@ -50,5 +50,29 @@
 }
 .Register .submit-button{
     display: inline;
-    margin-left: 260px;
+    margin-left: 263px;
+}
+.tooltiptext {
+    width: 120px;
+    /* background-color: rgb(207, 68, 68); */
+    border: 1px solid red;
+    color: rgb(248, 11, 11);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 72%;
+    left: 7%;
+    margin-left: -60px;
+}
+.tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 10%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent red transparent;
 }

@@ -1,5 +1,18 @@
 {
+  "name": "project2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon App.js"
+  },
+  "author": "Muhammed faisal",
+  "license": "ISC",
   "dependencies": {
-    "express": "^4.18.0"
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
   }
 }

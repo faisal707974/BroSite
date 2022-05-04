@@ -4,8 +4,38 @@ import '../Register/Register.css'
 import Logo from '../Logo/Logo'
 import Input from '../Register/RegistrationInput/RegistrationInput'
 import Photo from '../Register/profilePhoto/profilePhoto'
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate } from 'react-router-dom'
+import Select from './selectInput/selectInput'
+import axios from '../../axios'
 
 export default function () {
+    const navigate = useNavigate()
+    const { register, handleSubmit, formState: { errors } } = useForm({ criteriaMode: "all" });
+
+    const onSubmit = async (data) => {
+        console.log({ data })
+        const response = await axios.post('http://localhost:3001/registration',data)
+        console.log(response)
+
+
+        // fetch('/signup', {
+        //     method: 'post',
+        //     headers: {
+        //         'Content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(data)
+        // }).then(function (response) {
+        //     response.json().then((result) => {
+        //         if (result.status === 200) {
+        //             navigate('/login')
+        //         }
+        //     })
+        // });
+    }
+
+
+
     return (
         <>
             <div className='Register'>
@@ -18,7 +48,7 @@ export default function () {
                     <div className='mt-4 ms-4'>
                         <h3 className=''>REGISTRATION</h3>
                     </div>
-                    <Form action="">
+                    <Form action="" onSubmit={handleSubmit(onSubmit)} >
                         <div className='profilePic'>
                             <Photo />
                         </div>
@@ -27,100 +57,79 @@ export default function () {
                             <div className="col">
                                 <div className="row">
                                     <div className="col">
-                                        <Input type={'text'} id={'fullName'} text={'Full Name'} />
+                                        <Input type='text' name='fullName' label='Name' required value='first name'
+                                            register={register} errors={errors} rules={{ required: true, pattern: /^[a-zA-Z]+\s[a-zA-Z]+$/ }} />
                                     </div>
                                     <div className="col"></div>
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Form.Group className='form-floating'>
-                                            <Form.Control type="date" id='dob' placeholder='dob' />
-                                            <Form.Label htmlFor="dob">Date of Birth</Form.Label>
-                                        </Form.Group>
+                                        <Input type={'date'} name={'dob'} label='Date of Birth' required value='2022-12-06'
+                                            register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                     <div className="col">
-                                        <Form.Group className='form-floating'>
-                                            <Form.Control type="text" id='gender' placeholder='gender' />
-                                            <Form.Label htmlFor="gender">Gender</Form.Label>
-                                        </Form.Group>
+                                        <Select name={'Gender'} required value='Female'
+                                            register={register} errors={errors} rules={{ required: true }} options={['Male', 'Female']} />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Form.Group className='form-floating'>
-                                            <Form.Control as='textarea' type="text" id='address' placeholder='address' />
-                                            <Form.Label htmlFor="address">Address</Form.Label>
-                                        </Form.Group>
+                                        <Input as={'textarea'} type={'text'} name={'address'} label='Address' required value='address'
+                                            register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Form.Group className='form-floating'>
-                                            <Form.Control type="text" id='district' placeholder='district' />
-                                            <Form.Label htmlFor="district">District</Form.Label>
-                                        </Form.Group>
+                                        <Input type={'text'} name={'country'} label='Country' required value='country'
+                                            register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                     <div className="col">
-                                        <Form.Group className='form-floating'>
-                                            <Form.Control type="text" id='state' placeholder='state' />
-                                            <Form.Label htmlFor="state">State</Form.Label>
-                                        </Form.Group>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col">
-                                        <Form.Group className='form-floating'>
-                                            <Form.Control type="text" id='email' placeholder='email' />
-                                            <Form.Label htmlFor="email">E-mail</Form.Label>
-                                        </Form.Group>
+                                        <Input type={'text'} name={'state'} label='State' required value='state'
+                                            register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                     <div className="col">
-                                        <Form.Group className='form-floating'>
-                                            <Form.Control type="text" id='whatsapp' placeholder='whatsapp' />
-                                            <Form.Label htmlFor="whatsapp">Whatsapp</Form.Label>
-                                        </Form.Group>
+                                        <Input type={'text'} name={'district'} label='District' required value='district'
+                                            register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Form.Group className='form-floating'>
-                                            <Form.Control type="text" id='employment' placeholder='employment' />
-                                            <Form.Label htmlFor="employment">Employment status</Form.Label>
-                                        </Form.Group>
+                                        <Input type={'text'} name={'email'} label='E-mail' required value='alskjd@asdlkf.com'
+                                            register={register} errors={errors} rules={{ required: true, pattern: /^[a-z]+@[a-z]+\.com$/ }} />
                                     </div>
                                     <div className="col">
-                                        <Form.Group className='form-floating'>
-                                            <Form.Control type="text" id='education' placeholder='education' />
-                                            <Form.Label htmlFor="education">Educational Qualifications</Form.Label>
-                                        </Form.Group>
+                                        <Input type={'text'} name={'whatsapp'} label='WhatsApp' required value='whatsapp'
+                                            register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Form.Group className='form-floating'>
-                                            <Form.Control type="text" id='college' placeholder='college' />
-                                            <Form.Label htmlFor="college">Name of College/Organisation</Form.Label>
-                                        </Form.Group>
+                                        <Select name={'Employment Status'} required
+                                            register={register} errors={errors} rules={{ required: true }} options={['Employed', 'Fresher', 'Student']} />
                                     </div>
                                     <div className="col">
-                                        <Form.Group className='form-floating'>
-                                            <Form.Control type="text" id='graduation' placeholder='graduation' />
-                                            <Form.Label htmlFor="graduation">Year of Graduation</Form.Label>
-                                        </Form.Group>
+                                        <Select name={'Qualification'} required
+                                            register={register} errors={errors} rules={{ required: true }} options={['B.Tech / M.Tech', 'BCA / MCA', 'Bsc / Msc', 'Diploma', 'Other']} />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Form.Group className='form-floating'>
-                                            <Form.Control type="text" id='password' placeholder='password' />
-                                            <Form.Label htmlFor="password">Login password</Form.Label>
-                                        </Form.Group>
+                                        <Input type={'text'} name={'college'} label='Name of College/Organisation' required value='college'
+                                            register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                     <div className="col">
-                                        <Form.Group className='form-floating'>
-                                            <Form.Control type="text" id='confirm' placeholder='confirm' />
-                                            <Form.Label htmlFor="confirm">confirm password</Form.Label>
-                                        </Form.Group>
+                                        <Input type={'text'} name={'graduation'} label='Year of Graduation' required value='2344'
+                                            register={register} errors={errors} rules={{ required: true, pattern:/^[0-9]{4}$/}} />
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col">
+                                        <Input type={'password'} name={'password'} label='Login password' required value='password'
+                                            register={register} errors={errors} rules={{ required: true }} />
+                                    </div>
+                                    <div className="col">
+                                        <Input type={'password'} name={'confirm'} label='Confirm password' required value='password'
+                                            register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                 </div>
                                 <br />
@@ -128,41 +137,36 @@ export default function () {
                                 <br />
                                 <div className="row">
                                     <div className="col">
-                                        <Form.Group className='form-floating'>
-                                            <Form.Control as='textarea' type="text" id='you' placeholder='you' />
-                                            <Form.Label htmlFor="you">Tell us more about you</Form.Label>
-                                        </Form.Group>
+                                        <Input as={'textarea'} type={'text'} name={'you'} label='Tell us more about you' required value='you'
+                                            register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Form.Group className='form-floating'>
-                                            <Form.Control as='textarea' type="text" id='sps' placeholder='sps' />
-                                            <Form.Label htmlFor="sps">Why do you want to join SPS?</Form.Label>
-                                        </Form.Group>
+                                        <Input as={'textarea'} type={'text'} name={'sps'} label='Why do you want to join SPS?' required value='sps'
+                                            register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Form.Group className='form-floating'>
-                                            <Form.Control as='textarea' type="text" id='motivation' placeholder='motivation' />
-                                            <Form.Label htmlFor="motivation">What motivates you to work hard everyday?</Form.Label>
-                                        </Form.Group>
+                                        <Input as={'textarea'} type={'text'} name={'motivation'} label='What motivates you to work hard everyday?' required value='motivation'
+                                            register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Form.Group className='form-floating'>
-                                            <Form.Control as='textarea' type="text" id='know' placeholder='know' />
-                                            <Form.Label htmlFor="know">From where did you know about SPS?</Form.Label>
-                                        </Form.Group>
+                                        <Input as={'textarea'} type={'text'} name={'know'} label='From where did you know about SPS?' required value='know'
+                                            register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                 </div>
-                                <div>
-                                    <input type="checkbox" />
-                                    <p> I agree that I have read and understood all the FAQs</p>
+                                <div className='position-relative'>
+                                    <div className='d-inline'>
+                                        <input name='agree' type="checkbox" {...register('agree', { required: 'required' })} />
+                                        <p> I agree that I have read and understood all the FAQs</p>
+                                    </div>
+                                    {errors['agree'] && <span className='tooltiptext'>Check here</span>}
                                     <div className='submit-button'>
-                                        <Button>Register now</Button>
+                                        <Button type='submit'>Register now</Button>
                                     </div>
                                 </div>
                             </div>
