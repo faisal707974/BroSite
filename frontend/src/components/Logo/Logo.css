@@ -5,6 +5,8 @@
 .logobase{
     width: 300px;
     color: white;
+    /* margin: auto; */
+    height: 60px;
 }
 .head{
     font-family: 'brotofont';

@@ -1,15 +1,15 @@
-.modal-backdrop{
+.login .modal-backdrop{
     /* background-color: red!important; */
 }
-.modal-dialog{
+.login .modal-dialog{
     max-width: 700px!important;
 }
-.modal-content{
+.login .modal-content{
     border-radius: 25px!important;
     margin-top: 90px;
     width: 700px!important;
 }
-.modal-body{
+.login .modal-body{
     /* background:url('../../assets/images/6.jpg'); */
     background-size: cover;
     background-color: black;

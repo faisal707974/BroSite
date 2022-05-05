@@ -3,25 +3,24 @@ import '../Login/Login.css'
 import { Modal, CloseButton, Container } from 'react-bootstrap'
 import img from '../../assets/images/10.jpg'
 import Logo from "../Logo/Logo";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-export default function Login() {
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-
+export default function Login({handleClose, setShow, show}) {
+   
+    // const dispatch = useDispatch()
+    // const selector =  useSelector()
+    const navigate = useNavigate()
+    
     return (
         <>
-            <div className="login">
-                <p className='btn border-0 bg-none p-0 m-0' onClick={handleShow}> Login </p>
-
-                <Modal show={show} onHide={handleClose} >
+            <div>
+                <Modal show={show} onHide={()=>{navigate('/')}} className="login">
                     <Modal.Body>
 
                         <div>
                             <div className="logo ms-4 mt-3">
-                                <Logo broColor={'#6da4f2'} />
+                                <Logo broColor1={'#6da4f2'} broColor2={'white'} />
                             </div>
                             <img className="logo-image" src={img} alt="" />
                         </div>
@@ -30,7 +29,7 @@ export default function Login() {
 
                             <div className="login-title-div">
                                 <div className="login-close text-end">
-                                    <CloseButton onClick={handleClose} variant='white' className="m-2" />
+                                    <CloseButton onClick={()=>{navigate('/')}} variant='white' className="m-2" />
                                 </div>
                                 <div className="login-title mb-4">
                                     <h3 className="ms-1">

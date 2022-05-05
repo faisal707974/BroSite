@@ -1,7 +1,10 @@
-export const register = (req,res)=>{
-            console.log('registration controller')
-            console.log(req.body)
-            res.json({
-                message: 'this is from backend'
-            })
+import NewReg from '../models/registration.js'
+
+export const register = async(req, res) => {
+    console.log(req.body)
+    const response = await NewReg.create(req.body)
+    console.log(response)
+    res.json({
+        Name : response.Name
+    })
 }

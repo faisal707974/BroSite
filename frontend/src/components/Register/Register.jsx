@@ -1,47 +1,41 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Form, Button } from 'react-bootstrap'
 import '../Register/Register.css'
 import Logo from '../Logo/Logo'
 import Input from '../Register/RegistrationInput/RegistrationInput'
 import Photo from '../Register/profilePhoto/profilePhoto'
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Select from './selectInput/selectInput'
-import axios from '../../axios'
+import RegComplete from '../registrationComplete/registrationComplete'
+import { useDispatch, useSelector } from 'react-redux'
+import { registeration } from '../../redux/actions/registerAction'
 
 export default function () {
     const navigate = useNavigate()
     const { register, handleSubmit, formState: { errors } } = useForm({ criteriaMode: "all" });
 
-    const onSubmit = async (data) => {
-        console.log({ data })
-        const response = await axios.post('http://localhost:3001/registration',data)
-        console.log(response)
+    const dispatch = useDispatch()
+    const {loading, error, userInfo} = useSelector((state)=>(state.Register))
 
-
-        // fetch('/signup', {
-        //     method: 'post',
-        //     headers: {
-        //         'Content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(data)
-        // }).then(function (response) {
-        //     response.json().then((result) => {
-        //         if (result.status === 200) {
-        //             navigate('/login')
-        //         }
-        //     })
-        // });
+    const [modal, setModal] = useState(false)
+    function toggleModal (){
+        setModal(!modal)
     }
-
-
-
+    
+    const onSubmit = async (data) => {
+        console.log('form')
+        console.log(data)
+        dispatch(registeration(data, toggleModal))
+    }
+    
     return (
         <>
+            <RegComplete modal={modal} error={error} userInfo={userInfo} />
             <div className='Register'>
                 <div className="header d-flex justify-content-center aign-items-center">
                     <div className="col logo">
-                        <Logo></Logo>
+                        <Logo broColor1={'black'} broColor2={'white'}></Logo>
                     </div>
                 </div>
                 <div className="form-div row w-75  mx-auto d-flex justify-content-center align-items-center">
@@ -94,7 +88,7 @@ export default function () {
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Input type={'text'} name={'email'} label='E-mail' required value='alskjd@asdlkf.com'
+                                        <Input type={'text'} name={'Email'} label='Email' required value='alskjd@asdlkf.com'
                                             register={register} errors={errors} rules={{ required: true, pattern: /^[a-z]+@[a-z]+\.com$/ }} />
                                     </div>
                                     <div className="col">
@@ -114,12 +108,12 @@ export default function () {
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Input type={'text'} name={'college'} label='Name of College/Organisation' required value='college'
+                                        <Input type={'text'} name={'college'} label='Name of College' required value='college'
                                             register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                     <div className="col">
-                                        <Input type={'text'} name={'graduation'} label='Year of Graduation' required value='2344'
-                                            register={register} errors={errors} rules={{ required: true, pattern:/^[0-9]{4}$/}} />
+                                        <Input type={'text'} name={'year of graduation'} label='graduation' required value='2344'
+                                            register={register} errors={errors} rules={{ required: true, pattern: /^[0-9]{4}$/ }} />
                                     </div>
                                 </div>
                                 <div className="row">
@@ -137,25 +131,25 @@ export default function () {
                                 <br />
                                 <div className="row">
                                     <div className="col">
-                                        <Input as={'textarea'} type={'text'} name={'you'} label='Tell us more about you' required value='you'
+                                        <Input as={'textarea'} type={'text'} name={'you'} label='More personal' required value='you'
                                             register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Input as={'textarea'} type={'text'} name={'sps'} label='Why do you want to join SPS?' required value='sps'
+                                        <Input as={'textarea'} type={'text'} name={'sps'} label='sps' required value='sps'
                                             register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Input as={'textarea'} type={'text'} name={'motivation'} label='What motivates you to work hard everyday?' required value='motivation'
+                                        <Input as={'textarea'} type={'text'} name={'motivation'} label='Motivated by' required value='motivation'
                                             register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Input as={'textarea'} type={'text'} name={'know'} label='From where did you know about SPS?' required value='know'
+                                        <Input as={'textarea'} type={'text'} name={'know'} label='Know about SPS' required value='know'
                                             register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                 </div>
