@@ -22,5 +22,5 @@ app.use('/registration',registrationRouter)
 app.use('/fumigation',fumigationRouter)
 
 app.listen(process.env.PORT,()=>{
-    console.log(`server started running in ${process.env.PORT}`)
+    console.log(`server started running in ${process.env.PORT}`) 
 }) 

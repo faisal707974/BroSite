@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Link} from 'react-router-dom'
-import '../Home/Home.css'
-import Login from "../Login/Login";
+import './Home.css'
+import Login from "../../pages/Login/Login";
 
 
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-import '../RegistrationInput/RegistrationInput.css'
+import './RegistrationInput.css'
 
 export default function ({as, type, name, label, register, errors, rules, required, value }) {
     return (

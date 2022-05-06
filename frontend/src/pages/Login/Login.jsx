@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import '../Login/Login.css'
 import { Modal, CloseButton, Container } from 'react-bootstrap'
 import img from '../../assets/images/10.jpg'
-import Logo from "../Logo/Logo";
+import Logo from "../../components/Logo/Logo";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 export default function Login({handleClose, setShow, show}) {
    
-    // const dispatch = useDispatch()
-    // const selector =  useSelector()
     const navigate = useNavigate()
     
     return (

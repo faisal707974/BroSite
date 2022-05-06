@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'
 import Logo from '../Logo/Logo'
-import '../registrationComplete/registrationComplete.css'
+import './registrationThanks.css'
 
 export default function RegComplete({ modal, error, userInfo }) {
 

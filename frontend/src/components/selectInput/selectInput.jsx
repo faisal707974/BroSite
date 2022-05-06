@@ -1,6 +1,6 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-import '../selectInput/selectInput.css'
+import './selectInput.css'
 
 export default function Select({ register, rules, errors, required, options, name }) {
     return (
