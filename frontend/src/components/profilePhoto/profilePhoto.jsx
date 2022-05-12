@@ -1,34 +1,53 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './profilePhoto.css'
-import { Camera } from 'react-bootstrap-icons'
+import Cropper from '../Cropper/Cropper';
 
-export default function () {
+
+export default function ({ imgSrc, setImgSrc }) {
+
+    const [cropper, setCropper] = useState(false)
+
+    const photoUpload = e => {
+        e.preventDefault();
+        const reader = new FileReader()
+        reader.addEventListener('load', () =>
+            setImgSrc(reader.result.toString() || ''),
+        )
+        reader.readAsDataURL(e.target.files[0])
+        { e.target.files[0] && setCropper(true) }
+
+
+
+
+        // const imageFile = e.target.files[0]
+        // setImgSrc(URL.createObjectURL(imageFile))
+
+        // const reader = new FileReader();
+        // const file = e.target.files[0];
+        // reader.onloadend = () => {
+        //     setImgSrc({
+        //         file: file,
+        //         imagePreviewUrl: reader.result.toString()
+        //     });
+        // }
+        // reader.readAsDataURL(file);
+    }
+
 
 
     return (
         <>
             <div className='PhotoUpload'>
                 <div className='PhotoUpload-Inner'>
-
-
-
-                    {/* <div className='imageDiv'>
-                    <img src="https://www.seekpng.com/png/full/114-1149972_avatar-free-png-image-avatar-png.png" alt="" />
-                </div> */}
-
-                    {/* <input type="file" name="crop_image" className="crop_image" id="upload_image" />
-                <label htmlFor="upload_image" >
-                    <span className="profilepic__icon">
-                        <Camera />
-                        </span>
-                </label> */}
-
-                    {/* <div className='hoverText'>
-                    <h5>Upload Photo</h5>
-                </div> */}
-
+                    <label htmlFor="upload_image" className='fas' >
+                        <div className='img-upload'>
+                            <img src={imgSrc} alt="" />
+                        </div>
+                        <input type="file" accept='image/*' onChange={photoUpload} name="crop_image" className="crop_image" id="upload_image" />
+                    </label>
                 </div>
             </div>
+            {cropper && <Cropper imgSrc={imgSrc} setImgSrc={setImgSrc} setCropper={setCropper} />}
         </>
     )
 }

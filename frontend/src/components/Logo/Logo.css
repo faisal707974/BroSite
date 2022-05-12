@@ -3,12 +3,12 @@
     src: url(../../assets/fonts/ProgressPersonalUse-EaJdz.ttf) format('truetype');
 }
 .logobase{
-    width: 300px;
+    width: 300px!important;
     color: white;
     /* margin: auto; */
     height: 60px;
 }
-.head{
+.logobase .head{
     font-family: 'brotofont';
     position: relative;
 }

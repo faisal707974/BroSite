@@ -1,6 +1,8 @@
+@import url('../../constants/constants.css');
+
 .Register {
     /* background:url('https://devblogs.microsoft.com/xamarin/wp-content/uploads/sites/44/2020/03/CssSample1.png'); */
-    background: linear-gradient(45deg, #52c5cf, #79f1a4);
+    background: linear-gradient(60deg, var(--color1), var(--color2));
     background-size: cover;
 }
 .Register .registration-form {
@@ -9,7 +11,7 @@
 .Register .form-div {
     border-radius: 25px 25px 25px 25px;
     background-color: rgb(255, 255, 255);
-    margin-bottom:100px;
+    margin-bottom:100px!important;
 }
 .Register .header{
     height: 100px;

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import './Register.css'
 import Logo from '../../components/Logo/Logo'
@@ -10,25 +10,32 @@ import Select from '../../components/selectInput/selectInput'
 import RegComplete from '../../components/registrationThanks/registrationThanks'
 import { useDispatch, useSelector } from 'react-redux'
 import { registeration } from '../../redux/actions/registerAction'
+import default_image from '../../assets/images/11.jpg'
 
 export default function () {
     const navigate = useNavigate()
     const { register, handleSubmit, formState: { errors } } = useForm({ criteriaMode: "all" });
 
     const dispatch = useDispatch()
-    const {loading, error, userInfo} = useSelector((state)=>(state.Register))
+    const { loading, error, userInfo } = useSelector((state) => (state.Register))
 
     const [modal, setModal] = useState(false)
-    function toggleModal (){
+    function toggleModal() {
         setModal(!modal)
     }
-    
+
+    const [imgSrc, setImgSrc] = useState(default_image)
+    const [password_match, setPassword_match] = useState()
+
     const onSubmit = async (data) => {
-        console.log('form')
-        console.log(data)
-        dispatch(registeration(data, toggleModal))
+        if(data.password === data.confirm_password){
+            setPassword_match()
+            dispatch(registeration(data, toggleModal))
+        }else{
+            setPassword_match('error')
+        }
     }
-    
+
     return (
         <>
             <RegComplete modal={modal} error={error} userInfo={userInfo} />
@@ -44,14 +51,14 @@ export default function () {
                     </div>
                     <Form action="" onSubmit={handleSubmit(onSubmit)} >
                         <div className='profilePic'>
-                            <Photo />
+                            <Photo imgSrc={imgSrc} setImgSrc={setImgSrc} />
                         </div>
                         <div className="row registration-form mx-auto my-3 mb-5">
 
                             <div className="col">
                                 <div className="row">
                                     <div className="col">
-                                        <Input type='text' name='fullName' label='Name' required value='first name'
+                                        <Input type='text' name='fullName' label='Name' required 
                                             register={register} errors={errors} rules={{ required: true, pattern: /^[a-zA-Z]+\s[a-zA-Z]+$/ }} />
                                     </div>
                                     <div className="col"></div>
@@ -118,11 +125,11 @@ export default function () {
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Input type={'password'} name={'password'} label='Login password' required value='password'
+                                        <Input type={'password'} name={'password'} label='password' required
                                             register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                     <div className="col">
-                                        <Input type={'password'} name={'confirm'} label='Confirm password' required value='password'
+                                        <Input type={'password'} name={'confirm'} label='confirm_password' required confirm_password_error={password_match}
                                             register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                 </div>

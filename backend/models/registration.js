@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import bcrypt from 'bcryptjs'
 
 const registrationSchema = new mongoose.Schema({
     Name: String,
@@ -14,12 +15,29 @@ const registrationSchema = new mongoose.Schema({
     Qualification: String,
     'Name of College': String,
     'graduation': Number,
-    Password: String,
+    password: String,
     'More personal': String,
     'sps': String,
     'Motivated by': String,
-    'Know about SPS': String
+    'Know about SPS': String,
+    role: String
 })
 
-const NewReg = mongoose.model('NewReg',registrationSchema)
-export default NewReg
+registrationSchema.methods.matchPassword = async function (enteredPassword, callback) {
+    return await bcrypt.compare(enteredPassword, this.password);
+};
+
+
+registrationSchema.pre("save", function (next) {
+    if (!this.isModified("password")) {
+        next();
+    }
+    bcrypt.hash(this.password, 10, (err, hash) => {
+        this.password = hash
+        next()
+    });
+});
+
+
+const registration = mongoose.model('registration', registrationSchema)
+export default registration
