@@ -3,14 +3,22 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { registerReducer } from './reducer/registerReducer'
 import { loginReducer } from './reducer/loginReducer'
+import { sideBarReducer } from './reducer/sidebarReducer'
 
 const reducer = combineReducers({
     Register : registerReducer,
-    Login : loginReducer
+    Login : loginReducer,
+    SideBar : sideBarReducer
 })
 
 const middleware = [thunk]
 
-const store = createStore(reducer,composeWithDevTools(applyMiddleware(...middleware)))
+const initialState = {
+    SideBar : {
+        status: false
+    }
+} 
+
+const store = createStore(reducer,initialState,composeWithDevTools(applyMiddleware(...middleware)))
 
 export default store;

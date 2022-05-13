@@ -11,3 +11,69 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* ///////////////////////////////////////////////////////// */
+
+@font-face {
+  font-family: 'Neuton-Bold';
+  src: url(../src/assets/fonts/Neuton/Neuton-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Neuton-ExtraBold';
+  src: url(../src/assets/fonts/Neuton/Neuton-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: 'Neuton-ExtraLight';
+  src: url(../src/assets/fonts/Neuton/Neuton-ExtraLight.ttf);
+}
+
+@font-face {
+  font-family: 'Neuton-Italic';
+  src: url(../src/assets/fonts/Neuton/Neuton-Italic.ttf);
+}
+
+@font-face {
+  font-family: 'Neuton-Light';
+  src: url(../src/assets/fonts/Neuton/Neuton-Light.ttf);
+}
+
+@font-face {
+  font-family: 'Neuton-Regular';
+  src: url(../src/assets/fonts/Neuton/Neuton-Regular.ttf);
+}
+
+/* ///////////////////////////////////////////////////////// */
+
+@font-face {
+  font-family: 'Oleo-Bold';
+  src: url(../src/assets/fonts/Oleo_Script_Swash_Caps/OleoScriptSwashCaps-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Oleo-Regular';
+  src: url(../src/assets/fonts/Oleo_Script_Swash_Caps/OleoScriptSwashCaps-Regular.ttf);
+}
+
+/* ///////////////////////////////////////////////////////// */
+
+@font-face {
+  font-family: 'Serif-Bold';
+  src: url(./assets/fonts/PT_Serif/PTSerif-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Serif-BoldItalic';
+  src: url(./assets/fonts/PT_Serif/PTSerif-BoldItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Serif-Italic';
+  src: url(./assets/fonts/PT_Serif/PTSerif-Italic.ttf);
+}
+
+@font-face {
+  font-family: 'Serif-Regular';
+  src: url(./assets/fonts/PT_Serif/PTSerif-Regular.ttf);
+}

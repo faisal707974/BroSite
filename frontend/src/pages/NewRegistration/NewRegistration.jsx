@@ -1,16 +1,17 @@
 import React from 'react'
 import Logo from '../../components/Logo/Logo'
-import '../New_registration/New_registration.scss'
+import '../NewRegistration/NewRegistration.scss'
 import img from '../../assets/images/13.png'
 import Navbar from '../../components/Navbar/Navbar'
+import Wall from '../../components/Wall/Wall'
 
-export default function New_registration() {
+export default function NewRegistration() {
     return (
         <>
-            <div className='New_registration'>
+            <div className='NewRegistration'>
                 <div className="layer1 row">
                     <Logo broColor1={'#7bcef3'} broColor2={'black'} />
-                    <Navbar/>
+                    <Navbar />
                 </div>
                 <div className="layer2 row">
                     <div className="content col col-sm-5 col-12">
@@ -43,8 +44,8 @@ export default function New_registration() {
                             </div>
                         </div>
                     </div>
-                    <div className="col col-lg-7 col-12">
-                        <img className='mx-auto d-block' src={img} alt="" />
+                    <div className="col">
+                        <Wall img={img} />
                     </div>
                 </div>
                 <div className='layer3 row'>

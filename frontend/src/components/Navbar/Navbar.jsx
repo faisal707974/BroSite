@@ -4,7 +4,7 @@ import '../Navbar/Navbar.scss'
 function Navbar() {
     return (
         <>
-            <div className="navbar col">
+            <div className="Navbar col">
                 <ul>
                     <li>Home</li>
                     <li>Gallery</li>

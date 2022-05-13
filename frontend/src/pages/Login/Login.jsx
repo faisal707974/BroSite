@@ -11,7 +11,6 @@ import { loginAction } from "../../redux/actions/loginAction";
 
 export default function Login({ handleClose, setShow, show }) {
 
-    const googleClientID = '490727042506-og1oh4j5hm2lsbqmvrru0c1gdtqtot29.apps.googleusercontent.com'
     const { register, handleSubmit, formState: { errors } } = useForm({ criteriaMode: 'all' })
 
     const navigate = useNavigate()
@@ -22,14 +21,6 @@ export default function Login({ handleClose, setShow, show }) {
     
     const onSubmit = async (data) => {
         dispatch(loginAction(data, setValidErr, navigate))
-        // console.log(1)
-        // if (loginState?.userInfo.role === 'newRegistration') {
-        //     console.log(2)
-        //     navigate('/new_registration')
-        // } else if (loginState?.userInfo.role === 'fumigation') {
-        //     console.log(3)
-        //     navigate('/fumigation')
-        // }
     }
 
     const checkValid = () => {

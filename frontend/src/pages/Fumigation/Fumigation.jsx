@@ -4,6 +4,7 @@ import img from '../../assets/images/17.jpg'
 import '../Fumigation/Fumigation.scss'
 import TimeNow from "../../components/TimeNow/TimeNow";
 import Navbar from "../../components/Navbar/Navbar";
+import Wall from "../../components/Wall/Wall";
 
 export default function Fumigation() {
     return (
@@ -41,7 +42,7 @@ export default function Fumigation() {
                         </div>
                     </div>
                     <div className="col">
-                        <img src={img} alt="" />
+                        <Wall img={img} />
                     </div>
                 </div>
                 <div className="level2">
