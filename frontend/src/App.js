@@ -25,7 +25,8 @@ function App() {
           <Route path='/fumigation' element={<Fumigation />} />
 
           <Route path='/manager' element={<Manager/>} />
-          <Route path='/manager/workshop' element={<Workshop />} />
+          <Route path='/manager/workshop' element={<Workshop status={'scheduled'} />} />
+          <Route path='/manager/workshop/event_day' element={<Workshop status={'eventDay'}/>} />
 
           <Route path='/test' element={<Sidebar />} />
         </Routes>

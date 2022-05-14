@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { registeration } from '../../redux/actions/registerAction'
 import default_image from '../../assets/images/11.jpg'
 
+
 export default function () {
     const navigate = useNavigate()
     const { register, handleSubmit, formState: { errors } } = useForm({ criteriaMode: "all" });
