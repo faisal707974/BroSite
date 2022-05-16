@@ -1,0 +1,143 @@
+.ToggleSwitch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+
+    .track {
+        display: flex;
+        align-items: center;
+        width: 80%;
+        height: 50%;
+        border-radius: 20px;
+        border: .5px solid gray;
+
+        span {
+            width: 33.33%;
+            height: 100%;
+            background-color: var(--color6);
+            display: inline-block;
+            cursor: pointer;
+
+            &:nth-child(1) {
+                border-radius: 20px 0 0 20px;
+                text-align: left;
+                padding-left: 15px;
+            }
+
+            &:nth-child(2) {
+                text-align: center;
+            }
+
+            &:nth-child(3) {
+                border-radius: 0 20px 20px 0;
+                text-align: right;
+                padding-right: 15px;
+            }
+
+            P {
+                position: relative;
+                bottom: 2px;
+            }
+        }
+    }
+
+    .button {
+        width: 20%;
+        height: 20%;
+        border-radius: 50%;
+        background-color: #06c7a8;
+        position: absolute;
+        border: 1px solid rgb(0, 173, 173);
+        transition: transform .5s ease-in-out;
+    }
+
+    .moveLeft {
+        transform: translate(-56px);
+    }
+
+    .moveCenter {
+        transform: translate(0);
+    }
+
+    .moveRight {
+        transform: translate(56px);
+    }
+
+    .status {
+        position: absolute;
+        top: 140px;
+        left: 50px;
+        pointer-events: none;
+        // display: none;
+        // transition: all .5s ease-in-out;
+
+    }
+}
+
+.present {
+    color: #7ecd06;
+
+    .button {
+        background-color: greenyellow;
+        z-index: 2;
+    }
+
+    .track {
+
+        span {
+            background-color: rgba(172, 255, 47, 0.5);
+        }
+    }
+
+    .status {
+        left: 25px;
+        transition: all .5s ease-in-out;
+        transform: translate(37px);
+        z-index: 1;
+        // display: block;
+    }
+}
+
+.absent {
+    color: rgb(252, 5, 5);
+
+    .button {
+        background-color: rgb(248, 32, 32);
+    }
+
+    .track {
+
+        span {
+            background-color: rgba(255, 0, 0, 0.5);
+        }
+    }
+
+    .status {
+        left: 118px;
+        transform: translate(-60px);
+        transition: all .5s ease-in-out;
+        z-index: 1;
+    }
+}
+
+.cancelled {
+    color: skyblue;
+
+    .button {
+        background-color: skyblue;
+    }
+
+    .track {
+
+        span {
+            background-color: rgba(135, 207, 235, 0.5);
+        }
+    }
+    .status {
+        // left: 118px;
+        transform: translate(0,30px);
+        transition: all .5s ease-in-out;
+        z-index: 1;
+    }
+}

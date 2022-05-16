@@ -53,3 +53,9 @@
 .img-upload:hover:before{
    opacity: 1;
  }
+
+ .photoErr{
+     color: red;
+     display: flex;
+     justify-content: center;
+ }

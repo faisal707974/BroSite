@@ -1,9 +1,18 @@
 .EventDay {
+    height: 100%;
+    h1{
+        text-align: center;
+        border-bottom: 2px solid var(--color4);
+        font-family: 'oleo-regular';
+        color: var(--color4);
+    }
     .attendance {
-        .card {
-            height: 200px;
-            width: 200px;
-            background-color: white;
-        }
+        padding-right: 2%;
+        padding-left: 6%;
+        height: 90%;
+        overflow-y: auto;
+        
+
+        
     }
 }

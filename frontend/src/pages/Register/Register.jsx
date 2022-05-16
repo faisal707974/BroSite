@@ -11,6 +11,7 @@ import RegComplete from '../../components/registrationThanks/registrationThanks'
 import { useDispatch, useSelector } from 'react-redux'
 import { registeration } from '../../redux/actions/registerAction'
 import default_image from '../../assets/images/11.jpg'
+import { createPortal } from 'react-dom'
 
 
 export default function () {
@@ -26,11 +27,13 @@ export default function () {
     }
 
     const [imgSrc, setImgSrc] = useState(default_image)
+    const [croppedPhoto, setCroppedPhoto] = useState()
     const [password_match, setPassword_match] = useState()
 
     const onSubmit = async (data) => {
         if(data.password === data.confirm_password){
             setPassword_match()
+            data.photo = croppedPhoto
             dispatch(registeration(data, toggleModal))
         }else{
             setPassword_match('error')
@@ -52,7 +55,7 @@ export default function () {
                     </div>
                     <Form action="" onSubmit={handleSubmit(onSubmit)} >
                         <div className='profilePic'>
-                            <Photo imgSrc={imgSrc} setImgSrc={setImgSrc} />
+                            <Photo imgSrc={imgSrc} setImgSrc={setImgSrc} setCroppedPhoto={setCroppedPhoto} />
                         </div>
                         <div className="row registration-form mx-auto my-3 mb-5">
 

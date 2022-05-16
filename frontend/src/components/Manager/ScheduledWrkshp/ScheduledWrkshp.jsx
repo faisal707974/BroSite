@@ -33,6 +33,8 @@ export default function ScheduledWrkshp() {
                     <p>Change venue</p>
                     <p>Seats availability</p>
                     <p>Add new schedule</p>
+                    <p>Batch</p>
+                    <p>filled seats</p>
                     <Link to={'/manager/workshop/event_day'}>
                     <p>Event day</p>
                     </Link>
