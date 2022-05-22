@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import './Register.css'
 import Logo from '../../components/Logo/Logo'
@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { registeration } from '../../redux/actions/registerAction'
 import default_image from '../../assets/images/11.jpg'
 import { createPortal } from 'react-dom'
+import axios from 'axios'
 
 
 export default function () {
@@ -31,13 +32,49 @@ export default function () {
     const [password_match, setPassword_match] = useState()
 
     const onSubmit = async (data) => {
-        if(data.password === data.confirm_password){
+        if (data.password === data.confirm_password) {
             setPassword_match()
             data.photo = croppedPhoto
             dispatch(registeration(data, toggleModal))
-        }else{
+        } else {
             setPassword_match('error')
         }
+    }
+
+    const [Brocamps, setBrocamps] = useState([])
+    const [Batches, setBatches] = useState([])
+    useEffect(() => {
+        async function getBatchDetails() {
+            const response = await axios.get('http://localhost:3001/manager/schedules')
+            return new Promise((resolve) => resolve(response.data))
+        }
+        getBatchDetails().then((res) => {
+            let map = res.map(obj => obj.BroCamp)
+            let filter = map.filter((value, index, array) => {
+                return array.indexOf(value) === index
+            })
+            setBrocamps(filter)
+
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+            const dates = res.reduce((acc, curr) => {
+                let d = curr.Date
+                let newDate = d.Year+ "-" +months[d.Month-1]+ "-" +d.Day
+                if (acc[curr.BroCamp]) {
+                    acc[curr.BroCamp].push(newDate).toString()
+                } else {
+                    acc[curr.BroCamp] = [newDate]
+                }
+                return acc
+            }, {})
+            setBatches(dates)
+        })
+    }, [])
+
+    const [selected, setSelected] = useState()
+    function handleSelect(e) {
+        let date = new Date()
+        setSelected(Batches[e.target.value])
     }
 
     return (
@@ -62,7 +99,7 @@ export default function () {
                             <div className="col">
                                 <div className="row">
                                     <div className="col">
-                                        <Input type='text' name='fullName' label='Name' required 
+                                        <Input type='text' name='fullName' label='Name' required
                                             register={register} errors={errors} rules={{ required: true, pattern: /^[a-zA-Z]+\s[a-zA-Z]+$/ }} />
                                     </div>
                                     <div className="col"></div>
@@ -129,6 +166,21 @@ export default function () {
                                 </div>
                                 <div className="row">
                                     <div className="col">
+                                        {Brocamps ?
+                                            <Select name={'BroCamp'} required onClick={handleSelect}
+                                                register={register} errors={errors} rules={{ required: true }} options={Brocamps} />
+                                            : null}
+                                    </div>
+                                    <div className="col">
+                                        <Select name={'Batch'} required
+                                            register={register} errors={errors} rules={{ required: true }} 
+                                            options={
+                                                selected ? 
+                                                selected : []} />
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col">
                                         <Input type={'password'} name={'password'} label='password' required
                                             register={register} errors={errors} rules={{ required: true }} />
                                     </div>
@@ -178,7 +230,6 @@ export default function () {
                         </div>
                     </Form>
                 </div>
-                <div className="row"></div>
             </div >
         </>
     )

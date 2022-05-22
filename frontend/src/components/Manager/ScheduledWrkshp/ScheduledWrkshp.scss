@@ -1,53 +1,103 @@
 .ScheduledWrkshp {
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+    .display{
+        height: 230px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .empty_display{
+        height: inherit;
+        img{
+            margin-left: auto;
+            margin-right: auto;
+            height: 70%;
+        }
+        h6{
+            margin-top: 50px;
+            text-align: center;
+        }
+    }
 
     .DateCards {
         display: flex;
         justify-content: center;
 
-        .DateCard {
-            width: 150px;
-            height: 170px;
-            background-color: white;
-            margin: 10px;
-            display: inline-block;
-            border-radius: 25px;
+        i {
+            font-size: 2.5rem;
+            // color: white;
+            // background-color: white;
+            // opacity: .3; 
+            height: fit-content;
+            position: relative;
+            top: 70px;
+            padding: 5px;
 
-            P {
-                margin-bottom: 0px;
-                padding: 0px;
-                text-align: center;
+            box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, .15);
+            backdrop-filter: blur(5px);
+
+            &:nth-child(1) {
+                left: -250px;
             }
 
-            hr {
-                width: 70%;
-                align-self: center;
-                margin: auto;
+            &:nth-child(5) {
+                right: -250px;
             }
 
-            .date {
-                font-size: 5rem;
-                height: 5.5rem;
-                position: relative;
-                top: -8px;
-                font-family: 'Oleo-regular';
+            &:active{
+                border: 1px solid var(--color6);
             }
-
-            .month {
-                font-size: 1.7rem;
-                font-family: 'neuton-regular';
-            }
-
-            .day {
-                margin-top: .5rem;
-                position: relative;
-                top: -2px;
-                font-size: 1.1rem;
-                font-family: 'neuton-regular';
+            &:hover{
+                background-color: black;
+                color: white;
             }
         }
+
+    }
+
+    .line {
+        position: relative;
+    }
+
+    .line-one {
+        bottom: -133px;
+    }
+
+    .line-two {
+        bottom: -110px;
+    }
+
+    .column {
+        display: flex;
+
+        .HexaOptions {
+            p {
+                transform: rotate(-90deg);
+                color: white;
+                width: 78px;
+                margin-bottom: 0%;
+                text-align: center;
+                position: relative;
+                bottom: -7px;
+            }
+        }
+
+    }
+
+    .col-one {
+        justify-content: space-around;
+        padding-right: 21%;
+        padding-left: 21%;
+
+    }
+
+    .col-two {
+        justify-content: space-between;
+        padding-right: 17%;
+        padding-left: 17%;
     }
 }

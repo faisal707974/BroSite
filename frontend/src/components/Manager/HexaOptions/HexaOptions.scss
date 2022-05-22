@@ -1,0 +1,56 @@
+.HexaOptions {
+    display: inline-block;
+    margin: 5px;
+    transform: rotate(90deg);
+
+    a{
+        text-decoration: none;
+    }
+
+    .frame {
+        $length: 3.8rem;
+        $ratio: 1.45;
+        $radius: $length/5;
+        $color: #2d5759;
+        // $color:var(--color9);
+
+        width: $length * $ratio;
+        height: $length;
+        background-color: $color;
+        position: relative;
+        opacity: 0.7;
+        padding: 0%;
+        border-radius: $radius;
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 85px;
+            height: 48px;
+        }
+
+        &:before,
+        &:after {
+            content: '';
+            width: $length * $ratio;
+            height: $length;
+            background-color: $color;
+            position: absolute;
+            border-radius: $radius;
+        }
+
+        &::before {
+            transform: rotate(60deg);
+        }
+
+        &::after {
+            transform: rotate(-60deg);
+        }
+
+        &>div:first-of-type {
+            position: absolute;
+            z-index: 1;
+        }
+    }
+}

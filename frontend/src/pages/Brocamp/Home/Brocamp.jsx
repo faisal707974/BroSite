@@ -1,16 +1,40 @@
 import React from "react";
-import Logo from '../../components/Logo/Logo'
-import img from '../../assets/images/17.jpg'
-import '../Fumigation/Fumigation.scss'
-import TimeNow from "../../components/TimeNow/TimeNow";
-import Navbar from "../../components/Navbar/Navbar";
-import Wall from "../../components/Wall/Wall";
+import './Brocamp.scss'
+// import Logo from '../../components/Logo/Logo'
+// import img from '../../assets/images/17.jpg'
+// import TimeNow from "../../components/TimeNow/TimeNow";
+// import Navbar from "../../components/Navbar/Navbar";
+// import Wall from "../../components/Wall/Wall";
 
-export default function Fumigation() {
+import Sidebar from "../../../components/Sidebar/Sidebar";
+import { BrocampTabs } from "../../../constants/PageTabs/Manager";
+
+export default function Brocamp() {
+
+    
+
+
     return (
         <>
-            <div className="fumigation">
-                <div className="row">
+            <div className="brocamp">
+            <Sidebar pages={BrocampTabs} current={'Home'}/>
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                {/* <div className="row">
                     <Logo broColor1={'#683ba4'} broColor2={'#565454'} />
                     <Navbar />
                 </div>
@@ -19,7 +43,7 @@ export default function Fumigation() {
                         <div className="row ">
                             <div className="head">
                                 <div>
-                                    <h1>Fumigation Period</h1>
+                                    <h1>Brocamp Period</h1>
                                     <div className="weeks">
                                         <h2>Week 1</h2>
                                         <h2>Week 2</h2>
@@ -47,7 +71,7 @@ export default function Fumigation() {
                 </div>
                 <div className="level2">
 
-                </div>
+                </div> */}
             </div>
         </>
     )

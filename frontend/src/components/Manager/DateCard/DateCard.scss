@@ -1,0 +1,41 @@
+.DateCard {
+    width: 150px;
+    height: 170px;
+    background-color: white;
+    margin: 10px;
+    display: inline-block;
+    border-radius: 25px;
+
+    P {
+        margin-bottom: 0px;
+        padding: 0px;
+        text-align: center;
+    }
+
+    hr {
+        width: 70%;
+        align-self: center;
+        margin: auto;
+    }
+
+    .date {
+        font-size: 5rem;
+        height: 5.5rem;
+        position: relative;
+        top: -8px;
+        font-family: 'Oleo-regular';
+    }
+
+    .month {
+        font-size: 1.7rem;
+        font-family: 'neuton-regular';
+    }
+
+    .day {
+        margin-top: .5rem;
+        position: relative;
+        top: -2px;
+        font-size: 1.1rem;
+        font-family: 'neuton-regular';
+    }
+}
