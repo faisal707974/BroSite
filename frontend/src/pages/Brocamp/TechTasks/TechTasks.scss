@@ -1,5 +1,5 @@
-.TechTasks{
-    .question{
+.TechTasks {
+    .question {
         height: 150px;
         width: 90%;
         background-color: white;
@@ -7,18 +7,42 @@
         margin-bottom: 20px;
         padding: 50px;
         border-radius: 20px;
-        div{
+        border: 1px dashed var(--color4);
+
+        div {
             display: inline-block;
             height: 100%;
         }
-        h6{
+
+        h6 {
             display: inline-block;
         }
 
     }
-    #codeEditor{
+
+    #codeEditor {
         margin-left: 50px;
-        width: 90%!important;
-        height: 350px!important;
+        width: 90% !important;
+        height: 330px !important;
+        box-shadow: 1px 1px 7px 3px gray;
     }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 130px;
+        padding-right: 150px;
+        padding-top: 20px;
+
+        button {
+            width: 200px;
+            background-color: var(--color4);
+            color: white;
+            border: none;
+            height: 50px;
+            border-radius: 10px;
+            opacity: 0.8;
+        }
+    }
+
 }

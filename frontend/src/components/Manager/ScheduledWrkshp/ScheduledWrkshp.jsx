@@ -7,15 +7,22 @@ import Input from '../../RegistrationInput/RegistrationInput'
 import Select from '../../selectInput/selectInput'
 import { useForm } from 'react-hook-form';
 import axios from "axios";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import img from '../../../assets/images/19.png'
+import { useDispatch } from "react-redux";
 
+import { save_current_workshop_id_to_store } from "../../../Utils/Manager";
 
 export default function ScheduledWrkshp() {
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const [modal, setModal] = useState(false)
+    const [schedules, setSchedules] = useState()
+    const [currSchedule, setCurrSchedule] = useState(0)
+
+    // --------------------------------------------------------------- creating workshop hexagon options
 
     const options = [
         { title: 'Batch', color: '#557f8d' },
@@ -32,17 +39,16 @@ export default function ScheduledWrkshp() {
     const firstrow = options.splice(0, len / 2)
     const secondrow = options.splice(0, len / 2 + 1)
 
-
+    // --------------------------------------------------------------- creating new schedule
 
     const { register, handleSubmit, formState: { errors } } = useForm({ criteriaMode: "all" });
-
     const onSubmit = async (data) => {
         setModal(false)
         const response = await axios.post('http://localhost:3001/manager/newBatch', data)
     }
 
-    const [schedules, setSchedules] = useState()
-    const [currSchedule, setCurrSchedule] = useState(0)
+    // --------------------------------------------------------------- getting schedules from backend
+
     useEffect(() => {
         const getSchedules = async () => {
             const response = await axios.get('http://localhost:3001/manager/schedules')
@@ -55,13 +61,18 @@ export default function ScheduledWrkshp() {
         getSchedules()
     }, [modal])
 
+    // --------------------------------------------------------------- sending current workshop id to store
+    
+        save_current_workshop_id_to_store(schedules, currSchedule, dispatch)
+
+    // --------------------------------------------------------------- creating 2 other days of workshop
+
     let day1;
     let day2;
     let day3;
     let current;
     if (schedules) {
         current = schedules[currSchedule]
-
         const d = current?.Date
         day1 = new Date(d.Year, d.Month - 1, d.Day)
         day2 = new Date(day1)
@@ -69,14 +80,14 @@ export default function ScheduledWrkshp() {
         day3 = new Date(day1)
         day3.setDate(day1.getDate() + 2)
     }
-
     const m = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     const w = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
+    // --------------------------------------------------------------- deleting a schedule
 
     async function deleteSchedule() {
         const id = schedules[currSchedule]._id
         const response = await axios.post('http://localhost:3001/manager/delete_schedules', {}, { params: { id } })
-        console.log(response.status)
         if (response.status == 200) {
             navigate('/manager/workshop')
         }

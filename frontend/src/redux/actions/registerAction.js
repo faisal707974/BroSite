@@ -29,14 +29,10 @@ export const registeration = (data, toggleModal) => async (dispatch, getstate) =
                     console.log(error)
                 })
 
-
-
         })
 
-
-
     try {
-        const config = { headers: { 'Content-Type': 'applicatoin/json' } }
+        const config = { headers: { 'Content-Type': 'application/json' } }
         const { response } = await axios.post('http://localhost:3001/registration', data)
 
         dispatch({ type: USER_REGISTER_SUCCESS, payload: response })

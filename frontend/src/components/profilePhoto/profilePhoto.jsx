@@ -19,7 +19,6 @@ export default function ({ imgSrc, setImgSrc, setCroppedPhoto }) {
         { e.target.files[0] && setCropper(true) }
         setPhotoErr()
         console.log(e.target.files[0])
-
     }
 
     useEffect(() => {
@@ -34,7 +33,7 @@ export default function ({ imgSrc, setImgSrc, setCroppedPhoto }) {
                         <div className='img-upload'>
                             <img src={result} alt="" />
                         </div>
-                        <input type="file" accept='image/*' onChange={photoUpload} name={'photo'} className="photo" id="photo" required onInvalid={() => { setPhotoErr('Upload your photo') }} />
+                        <input type="file" accept='image/*' onChange={photoUpload} name={'photo'} className="photo" id="photo"  onInvalid={() => { setPhotoErr('Upload your photo') }} />
                     </label>
                 </div>
             </div>

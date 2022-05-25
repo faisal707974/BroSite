@@ -11,7 +11,6 @@ import RegComplete from '../../components/registrationThanks/registrationThanks'
 import { useDispatch, useSelector } from 'react-redux'
 import { registeration } from '../../redux/actions/registerAction'
 import default_image from '../../assets/images/11.jpg'
-import { createPortal } from 'react-dom'
 import axios from 'axios'
 
 
@@ -95,7 +94,6 @@ export default function () {
                             <Photo imgSrc={imgSrc} setImgSrc={setImgSrc} setCroppedPhoto={setCroppedPhoto} />
                         </div>
                         <div className="row registration-form mx-auto my-3 mb-5">
-
                             <div className="col">
                                 <div className="row">
                                     <div className="col">

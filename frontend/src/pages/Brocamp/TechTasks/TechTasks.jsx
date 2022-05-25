@@ -34,6 +34,11 @@ export default function TechTasks() {
                         name="codeEditor"
                         editorProps={{ $blockScrolling: false }}
                     />
+
+                    <div className="buttons">
+                        <button>Previous</button>
+                        <button>Next</button>
+                    </div>
                 </div>
             </div>
         </>

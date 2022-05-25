@@ -4,11 +4,13 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { registerReducer } from './reducer/registerReducer'
 import { loginReducer } from './reducer/loginReducer'
 import { sideBarReducer } from './reducer/sidebarReducer'
+import { workshopIdReducer } from './reducer/managerReducer'
 
 const reducer = combineReducers({
     Register : registerReducer,
     Login : loginReducer,
-    SideBar : sideBarReducer
+    SideBar : sideBarReducer,
+    WorkshopId : workshopIdReducer
 })
 
 const middleware = [thunk]

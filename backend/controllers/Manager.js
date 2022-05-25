@@ -1,5 +1,6 @@
 import { response } from "express";
 import newBatchModel from "../models/newBatchModel.js";
+import registration from "../models/registration.js";
 import TasksModel from "../models/tasksModel.js";
 
 export const newBatch = async (req, res) => {
@@ -94,4 +95,11 @@ export const getTasks = async (req, res) => {
     // console.log(response[0])
     res.status(200)
     res.send(response)
+}
+
+export const get_participants = (req, res)=>{
+
+    // registration.find()
+    console.log(req.params)
+
 }

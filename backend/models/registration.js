@@ -20,7 +20,8 @@ const registrationSchema = new mongoose.Schema({
     'sps': String,
     'Motivated by': String,
     'Know about SPS': String,
-    role: String
+    role: String,
+    Batch:String
 })
 
 registrationSchema.methods.matchPassword = async function (enteredPassword, callback) {

@@ -12,7 +12,7 @@ export const BrocampTabs = [
     {name: 'Tasks-Tech', icon : 'fa-code', link:'/brocamp/tech_tasks'},
     {name: 'Tasks-personal', icon : 'fa-user', link:'/fumigation/personal_tasks'},
     {name: 'Tasks-miscellaneous', icon : 'fa-list-alt', link:'/fumigation/miscellaneous_tasks'},
-    {name: 'Review', icon : 'fa-comments', link:'/fumigation/review'},
+    {name: 'Review', icon : 'fa-comments', link:'/brocamp/review'},
     {name: 'English Tasks', icon : 'fa-language', link:'/fumigation/english_tasks'},
     {name: 'Attendance', icon : 'fa-clock', link:'/fumigation/english_tasks'}
 ]

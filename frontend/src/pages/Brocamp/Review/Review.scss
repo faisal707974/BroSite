@@ -1,0 +1,59 @@
+.Review {
+    .content {
+        height: 88vh;
+
+        .main {
+            width: 99%;
+            height: 100%;
+            padding: 30px;
+
+            .side {
+                height: 100%;
+                width: 29%;
+                background-color: white;
+                display: inline-block;
+                padding: 40px;
+                border: 1px dashed var(--color4);
+                border-radius: 10px;
+
+                h6 {
+                    border-bottom: 1px solid rgb(177, 177, 177);
+                    padding-bottom: 20px;
+                    margin-top: 20px;
+                    cursor: pointer;
+                    color: gray;
+                }
+
+                .nextReview {
+                    text-align: center;
+                }
+
+                .active {
+                    color: var(--color4) !important;
+                    border-bottom: 3px solid var(--color4);
+                    font-weight: bold;
+                }
+
+            }
+
+            .center {
+                height: 100%;
+                width: 60%;
+                background-color: white;
+                display: inline-block;
+                margin-left: 20px;
+                border: 1px dashed var(--color4);
+                border-radius: 10px;
+                padding: 50px;
+                padding-left: 80px;
+
+                ol {
+                    li {
+                        text-indent: 2rem;
+                        font-size: 18pt;
+                    }
+                }
+            }
+        }
+    }
+}

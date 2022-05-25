@@ -16,6 +16,7 @@ import TechTasks from './pages/Brocamp/TechTasks/TechTasks';
 import Manager from './pages/Manager/Home/Home'
 import Workshop from './pages/Manager/Workshop/Workshop';
 import TasksManagement from './pages/Manager/TasksManagement/TasksManagement';
+import Review from './pages/Brocamp/Review/Review';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
 
           <Route path='/brocamp' element={<Brocamp />} />
           <Route path='/brocamp/tech_tasks' element={<TechTasks/>} />
+          <Route path='/brocamp/review' element={<Review/>} />
 
           <Route path='/manager' element={<Manager/>} />
           <Route path='/manager/workshop' element={<Workshop status={'scheduled'} />} />
