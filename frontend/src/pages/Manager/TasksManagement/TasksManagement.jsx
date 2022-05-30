@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './TasksManagement.scss'
 import Sidebar from "../../../components/Sidebar/Sidebar";
-import PageHead from "../../../components/PageHead/PageHead";
+import PageHead from "../../../components/General/PageHead/PageHead";
 import { ManagerTabs } from "../../../constants/PageTabs/Manager";
 import { Modal } from "react-bootstrap";
 import Input from "../../../components/RegistrationInput/RegistrationInput";
@@ -31,7 +31,7 @@ export default function TasksManagement() {
         getTasks()
     }, [])
 
-    useEffect(() => { 
+    useEffect(() => {
         if (tasks && domain === undefined) {
             setDomain(tasks[0]._id)
         }
@@ -43,9 +43,12 @@ export default function TasksManagement() {
             })
         }
     }, [tasks, domain])
-    if(currentTasks){
-        currentTasks.sort((a,b)=>(a.week>b.week)? 1 : -1)
+
+    if (currentTasks) {
+        currentTasks.sort((a, b) => (a.week > b.week) ? 1 : -1)
     }
+
+    console.log(domain)
     return (
         <>
             <Sidebar pages={ManagerTabs} current={'Tasks Management'} />
@@ -57,7 +60,7 @@ export default function TasksManagement() {
                         {
                             tasks ? tasks.map((obj, index) => {
                                 return (
-                                    <span key={index} onClick={() => { setDomain(obj._id) }}>{obj._id}</span>
+                                    <span className={domain === obj._id ? "active" : null} key={index} onClick={() => { setDomain(obj._id) }}>{obj._id}</span>
                                 )
                             }) : null
                         }

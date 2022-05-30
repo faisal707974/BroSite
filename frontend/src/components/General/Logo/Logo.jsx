@@ -1,5 +1,5 @@
 import React from "react";
-import '../Logo/Logo.css'
+import './Logo.css'
 
 export default function ({broColor1, broColor2}) {
     return (

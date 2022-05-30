@@ -3,19 +3,20 @@ import './Sidebar.scss'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { sideBarAction } from '../../redux/actions/sideBarAction.js'
+import Profile from '../Profile/Profile'
 
 export default function Sidebar({ pages, current }) {
 
     const [bar, setbar] = useState(false)
+    const [profileModal, setProfileModal] = useState(false)
 
     const dispatch = useDispatch()
     const barStatus = useSelector((state) => (state.SideBar.status))
-    const user = useSelector((state=>state.Login.userInfo?.Name))
+    const user = useSelector((state => state.Login.userInfo?.Name))
 
     useEffect(() => {
         dispatch(sideBarAction())
     }, [bar])
-
 
     return (
         <>
@@ -54,19 +55,21 @@ export default function Sidebar({ pages, current }) {
                     }
                     <div className='profile'>
                         <hr />
-                        <h6>{user?user:'profile name'}</h6>
+                        <h6>{user ? user : 'profile name'}</h6>
                         <div>
-                            <p><span><i className='fas fa-user'></i></span>profile</p>
+                            <p onClick={() => { dispatch(sideBarAction()); setProfileModal(true) }}><span><i className='fas fa-user'></i></span>profile</p>
                             <p><span><i className='fas fa-sign-out'></i></span>logout</p>
                         </div>
                     </div>
                 </div>
+                <Profile profileModal={profileModal} setProfileModal={setProfileModal} />
             </div>
             {/* <div className="body">
                 <div className="body-card">
                 
                 </div>
             </div> */}
+
         </>
     )
 }

@@ -18,12 +18,17 @@
     }
 
     .content {
-height: 90vh;
+        height: 90vh;
         overflow-y: scroll;
 
 
         .tabs {
             margin-top: 20px;
+
+            .active {
+                background-color: var(--color9);
+                color: white;
+            }
 
             span {
                 display: inline-block;

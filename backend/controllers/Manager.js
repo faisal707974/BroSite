@@ -4,6 +4,7 @@ import registration from "../models/registration.js";
 import TasksModel from "../models/tasksModel.js";
 
 export const newBatch = async (req, res) => {
+    console.log(req.body.Date + '   -batch creation date')
     const response = await newBatchModel.create(req.body)
 }
 
@@ -97,9 +98,10 @@ export const getTasks = async (req, res) => {
     res.send(response)
 }
 
-export const get_participants = (req, res)=>{
+export const get_participants = async (req, res)=>{
 
-    // registration.find()
-    console.log(req.params)
+       const participants = await registration.find({Batch:req.params.id})
+       res.status(200)
+       res.send(participants)
 
 }

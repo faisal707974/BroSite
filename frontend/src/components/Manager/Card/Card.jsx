@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import './Card.scss';
 import ToggleBtn from "../ToggleBtn/ToggleBtn";
 
-export default function Card() {
+export default function Card({name}) {
     const [status, setStatus] = useState(null)
     const [toggle, setToggle] = useState(null)
 
@@ -20,7 +20,7 @@ export default function Card() {
                     <span className={"fas fa-check" + (status ? ' ready' : '')} onClick={() => setStatus(toggle)}></span>
                 </div>
                 <img src="https://likhowithpride.com/site/assets/files/1108/opulent-profile-square-07.jpg" alt="" />
-                <h6>Amruth Todkar</h6>
+                <h6>{name}</h6>
                 <ToggleBtn toggle={toggle} setToggle={setToggle} />
             </div>
         </>

@@ -16,3 +16,11 @@ export const BrocampTabs = [
     {name: 'English Tasks', icon : 'fa-language', link:'/fumigation/english_tasks'},
     {name: 'Attendance', icon : 'fa-clock', link:'/fumigation/english_tasks'}
 ]
+
+export const AdvisorTabs = [
+    {name: 'Home', icon : 'fa-home', link:'/advisor'},
+    {name: 'Students', icon: 'fa-users', link : '/advisor/students'},
+    {name: 'Interviewers', icon: 'fa-award', link : '/advisor/interviewers'},
+    {name: 'Review', icon : 'fa-comments', link : '/advisor/review'},
+    {name: 'Leave Requests', icon : 'fa-user-clock', link : '/advisor/leave_requests'}
+]

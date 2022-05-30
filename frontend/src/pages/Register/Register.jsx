@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import './Register.css'
-import Logo from '../../components/Logo/Logo'
+// import Logo from '../../components/General/Logo/Logo'
+import Logo from '../../components/General/Logo/Logo'
 import Input from '../../components/RegistrationInput/RegistrationInput'
 import Photo from '../../components/profilePhoto/profilePhoto'
 import { useForm } from 'react-hook-form';

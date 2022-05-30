@@ -1,8 +1,8 @@
 import React from 'react'
-import Logo from '../../components/Logo/Logo'
+import Logo from '../../components/General/Logo/Logo'
 import '../NewRegistration/NewRegistration.scss'
 import img from '../../assets/images/13.png'
-import Navbar from '../../components/Navbar/Navbar'
+import Navbar from '../../components/General/Navbar/Navbar'
 import Wall from '../../components/Wall/Wall'
 
 export default function NewRegistration() {

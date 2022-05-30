@@ -2,7 +2,7 @@ import React from "react";
 import './TechTasks.scss'
 import Sidebar from "../../../components/Sidebar/Sidebar";
 import { BrocampTabs } from "../../../constants/PageTabs/Manager";
-import PageHead from "../../../components/PageHead/PageHead";
+import PageHead from "../../../components/General/PageHead/PageHead";
 
 import AceEditor from "react-ace";
 

@@ -14,17 +14,18 @@ export const registeration = (data, toggleModal) => async (dispatch, getstate) =
             const file = new File([blob], data.Name + ".jpeg", { type: 'image/jpeg' });
 
             const fd = new FormData();
-            console.log(file)
+            console.log({file})
             fd.append('file', file)
             fd.append('upload_preset', 'gchysefv')
             fd.append("cloud_name", "dj4qzfqjg");
             fd.append('resource_type', 'auto')
+            console.log({fd})
             const API_URL = 'https://api.cloudinary.com/v1_1/dj4qzfqjg/image/upload'
             fetch(API_URL, { method: 'POST', body: fd })
                 .then(res => res.json())
                 .then(res => {
                     console.log({ res })
-                    data.photo = res
+                    // data.photo = res
                 }).catch((error) => {
                     console.log(error)
                 })

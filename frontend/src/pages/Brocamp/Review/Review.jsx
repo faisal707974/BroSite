@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './Review.scss'
 import Sidebar from "../../../components/Sidebar/Sidebar";
 import { BrocampTabs } from "../../../constants/PageTabs/Manager";
-import PageHead from "../../../components/PageHead/PageHead";
+import PageHead from "../../../components/General/PageHead/PageHead";
 
 export default function Review() {
     const [section, setSection] = useState(1)

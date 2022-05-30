@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'brotofont';
-    src: url(../../assets/fonts/ProgressPersonalUse-EaJdz.ttf) format('truetype');
+    src: url(../../../assets/fonts/ProgressPersonalUse-EaJdz.ttf) format('truetype');
 }
 .logobase{
     width: 300px!important;

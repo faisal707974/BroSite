@@ -13,6 +13,8 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Brocamp from './pages/Brocamp/Home/Brocamp';
 import TechTasks from './pages/Brocamp/TechTasks/TechTasks';
 
+import Advisor from './pages/Advisor/Home/Home'
+
 import Manager from './pages/Manager/Home/Home'
 import Workshop from './pages/Manager/Workshop/Workshop';
 import TasksManagement from './pages/Manager/TasksManagement/TasksManagement';
@@ -32,9 +34,11 @@ function App() {
           <Route path='/brocamp/tech_tasks' element={<TechTasks/>} />
           <Route path='/brocamp/review' element={<Review/>} />
 
+          <Route path='/advisor' element={<Advisor/>} />
+
           <Route path='/manager' element={<Manager/>} />
           <Route path='/manager/workshop' element={<Workshop status={'scheduled'} />} />
-          <Route path='/manager/workshop/event_day' element={<Workshop status={'eventDay'}/>} />
+          <Route path='/manager/workshop/event_day/:id' element={<Workshop status={'eventDay'}/>} />
           <Route path='/manager/tasks_management' element={<TasksManagement/>} />
 
           <Route path='/test' element={<Sidebar />} />

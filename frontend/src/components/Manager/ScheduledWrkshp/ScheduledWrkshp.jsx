@@ -9,7 +9,7 @@ import { useForm } from 'react-hook-form';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import img from '../../../assets/images/19.png'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { save_current_workshop_id_to_store } from "../../../Utils/Manager";
 
@@ -17,6 +17,8 @@ export default function ScheduledWrkshp() {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
+
+    const workshopId = useSelector((state)=>state.WorkshopId)
 
     const [modal, setModal] = useState(false)
     const [schedules, setSchedules] = useState()
@@ -28,7 +30,7 @@ export default function ScheduledWrkshp() {
         { title: 'Batch', color: '#557f8d' },
         { title: 'Seats available', color: '#00adb4' },
         { title: 'filled seats', color: '#34789b' },
-        { title: 'Event day', color: '#368083', link: '/manager/workshop/event_day' },
+        { title: 'Event day', color: '#368083', link: '/manager/workshop/event_day/'+workshopId },
         { title: 'Change venue', color: '#727272' },
         { title: 'Change schedule', color: '#ab52a2' },
         { title: 'Add new schedule', color: '#ae3268', click: () => setModal(!modal) },
@@ -62,8 +64,8 @@ export default function ScheduledWrkshp() {
     }, [modal])
 
     // --------------------------------------------------------------- sending current workshop id to store
-    
-        save_current_workshop_id_to_store(schedules, currSchedule, dispatch)
+
+    save_current_workshop_id_to_store(schedules, currSchedule, dispatch)
 
     // --------------------------------------------------------------- creating 2 other days of workshop
 

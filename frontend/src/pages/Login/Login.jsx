@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import '../Login/Login.css'
 import { Modal, CloseButton, Container } from 'react-bootstrap'
 import img from '../../assets/images/10.jpg'
-import Logo from "../../components/Logo/Logo";
+import Logo from "../../components/General/Logo/Logo";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 // import { GoogleLogin } from 'react-google-login'
