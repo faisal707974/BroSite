@@ -21,13 +21,14 @@ const registrationSchema = new mongoose.Schema({
     'Motivated by': String,
     'Know about SPS': String,
     role: String,
-    Batch:String
+    Batch: String,
+    Week: Number,
+    domain: String
 })
 
 registrationSchema.methods.matchPassword = async function (enteredPassword, callback) {
     return await bcrypt.compare(enteredPassword, this.password);
 };
-
 
 registrationSchema.pre("save", function (next) {
     if (!this.isModified("password")) {

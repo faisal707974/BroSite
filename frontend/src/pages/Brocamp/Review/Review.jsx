@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import './Review.scss'
 import Sidebar from "../../../components/Sidebar/Sidebar";
 import { BrocampTabs } from "../../../constants/PageTabs/Manager";
 import PageHead from "../../../components/General/PageHead/PageHead";
+import axios from "axios";
 
 export default function Review() {
     const [section, setSection] = useState(1)
@@ -14,8 +15,34 @@ export default function Review() {
         'z-index'
     ]
 
+    const [input, setInput] = useState()
+    const learnedTodayInput = useRef()
+    async function saveTask() {
+        learnedTodayInput.current.value = ''
+        const response = await axios.post('http://localhost:3001/brocamp/review/learnedtoday', { topic: input })
+    }
 
+    const [learnedToday, setLearnedToday] = useState()
+    useEffect(() => {
+        async function getLearnedToday() {
+            const response = await axios.get('http://localhost:3001/brocamp/review/learnedtoday')
+            setLearnedToday(response.data)
+        }
+        getLearnedToday()
+    })
 
+    async function deleteLearnedToday(id) {
+        const response = await axios.delete('http://localhost:3001/brocamp/review/learnedtoday/' + id)
+    }
+
+    useEffect(()=>{
+        async function getLearnedThisWeek(){
+            // const resoponse = await axios.get('http://localhost:3001/brocamp/review/learnedThisWeek')
+        }
+        getLearnedThisWeek()
+    })
+
+    const [learnedThisWeek, setLearnedThisWeek] = useState()
 
     return (
         <>
@@ -48,15 +75,37 @@ export default function Review() {
                                         <li>two</li>
                                     </ol>
                                     : section === 2 ?
-                                        <ol>
-                                            <li>one</li>
-                                            <li>two</li>
-                                            <li>two</li>
-                                            <li>two</li>
-                                            <li>two</li>
-                                        </ol>
+                                        <div className="learnedToday">
+                                            <div>
+                                                <input ref={learnedTodayInput} type="text" onBlur={(e) => setInput(e.target.value)} />
+                                                <button onClick={saveTask}>Insert</button>
+                                            </div>
+                                            <ol>
+                                                {/* <hr />
+                                                <hr /> */}
+                                                {learnedToday ?
+                                                    learnedToday.map((obj, index) => {
+                                                        return (
+                                                            <div key={index}>
+                                                                <li>{obj.topic}
+                                                                    <span className="closeButton">
+                                                                        <i className="fas fa-close" onClick={() => deleteLearnedToday(obj._id)} />
+                                                                    </span></li>
+                                                            </div>
+                                                        )
+                                                    }) : null
+                                                }
+                                            </ol>
+                                        </div>
                                         : section === 3 ?
-                                            <p>Nothing learned this week</p>
+                                            learnedThisWeek ?
+                                                learnedThisWeek.map((obj, index) => {
+                                                    return (
+                                                        <div key={index}>
+                                                            <li>{obj.topic}</li>
+                                                        </div>
+                                                    )
+                                                }) : null
                                             : null
                             }
                         </div>

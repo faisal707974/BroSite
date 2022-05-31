@@ -29,7 +29,7 @@ export const loginAction = (data, setErr, navigate) => async (dispatch, getstate
                 navigate('/fumigation')
                 break;
 
-            case 'brocamp':
+            case 'BroCamp':
                 navigate('/brocamp')
                 break;
 

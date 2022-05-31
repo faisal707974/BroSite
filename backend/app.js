@@ -5,6 +5,7 @@ import connectDB from './connection/config.js'
 
 import GeneralRouter from './routes/General.js'
 import fumigationRouter from './routes/Fumigation.js'
+import brocampRouter from './routes/BroCamp.js'
 import managerRouter from './routes/Manager.js'
 
 const app = express()
@@ -19,6 +20,7 @@ connectDB()
 
 app.use('/',GeneralRouter)
 app.use('/fumigation',fumigationRouter)
+app.use('/brocamp', brocampRouter)
 app.use('/manager',managerRouter)
 
 app.listen(process.env.PORT,()=>{
