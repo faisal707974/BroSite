@@ -1,0 +1,50 @@
+.Students {
+    .content {
+        overflow-x: auto;
+        height: 500px;
+
+        table {
+            width: 80%;
+            background-color: white;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 1px 1px 20px 5px gray;
+            border-radius: 10px;
+
+            tbody{
+                tr{
+                    height: 60px;
+                    &:hover{
+                        background-color: rgb(225, 226, 226);
+                    }
+                }
+            }
+
+            th,
+            td {
+                text-align: center;
+                width: calc(100%/8);
+            }
+
+            th {
+                font-size: 15pt;
+                border-bottom: 2px solid var(--color4);
+            }
+
+            td {
+            
+                img {
+                    margin: 0px;
+                    width: 50px;
+                    border-radius: 50%;
+                }
+            }
+
+            th:nth-child(1),
+            td:nth-child(1){
+                width: 70px;
+            }
+        }
+    }
+}

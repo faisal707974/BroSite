@@ -18,7 +18,6 @@ export default function ({ imgSrc, setImgSrc, setCroppedPhoto }) {
         reader.readAsDataURL(e.target.files[0])
         { e.target.files[0] && setCropper(true) }
         setPhotoErr()
-        console.log(e.target.files[0])
     }
 
     useEffect(() => {

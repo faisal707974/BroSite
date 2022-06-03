@@ -2,54 +2,58 @@ import { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FAIL, USER_LOGIN_RES
 import axios from 'axios'
 
 export const loginAction = (data, setErr, navigate) => async (dispatch, getstate) => {
+    dispatch({ type: USER_LOGIN_REQUEST })
+
+    const config = {
+        withCredentials: true,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json'
+        }
+    }
     try {
-        dispatch({ type: USER_LOGIN_REQUEST })
-        const response = await axios.post('http://localhost:3001/login', data)
 
-        switch (response.data.code) {
-            case 401:
-                setErr(response.data.message)
-                break;
+        const response = await axios.post('http://localhost:3001/login', data, config)
+        console.log(response.data.userInfo?.Role)
 
-            case 403:
-                setErr(response.data.message)
-                break;
-
-            case 200:
-                // localStorage.setItem()
-                break;
+        if (response.data.userInfo) {
+            localStorage.setItem( 'userInfo', response.data.userInfo._id )
         }
 
-        switch (response.data.userInfo.role) {
-            case 'newRegistration':
-                navigate('/new_registration')
-                break;
-
-            case 'fumigation':
-                navigate('/fumigation')
-                break;
-
-            case 'BroCamp':
+        switch (response.data.userInfo.Role) {
+            case 'NEWREGISTRATION':
                 navigate('/brocamp')
                 break;
 
-            case 'advisor':
+            case 'FUMIGATION':
+                navigate('/fumigation')
+                break;
+
+            case 'BROCAMP':
+                navigate('/brocamp')
+                break;
+
+            case 'ADVISOR':
                 navigate('/advisor')
                 break;
 
-            case 'manager':
+            case 'MANAGER':
                 navigate('/manager')
                 break;
         }
-        // if(response.data.userInfo.role === 'newRegistration'){
-        //     console.log(2)
-        //     navigate('/new_registration')
-        // }else if(response.data.userInfo.role === 'fumigation'){
-        //     console.log(3)
-        //     navigate('/fumigation')
-        // }
-        dispatch({ type: USER_LOGIN_SUCCESS, payload: response.data })
-    } catch (error) {
 
+        dispatch({ type: USER_LOGIN_SUCCESS, payload: response.data })
+
+    } catch (error) {
+        // console.log(error)
+        switch (error.response?.status) {
+            case 401:
+                setErr(error.response.data.message)
+                break;
+
+            case 403:
+                setErr(error.response.data.message)
+                break;
+        }
     }
 }

@@ -1,11 +1,13 @@
 import mongoose from "mongoose";
+import JWT from 'jsonwebtoken'
 
 const UserSchema = new mongoose.Schema({
-    name: String,
-    password: String,
-    role: String,
+    Name: String,
+    Password: String,
+    Role: String,
     Week: Number,
-    domain: String,
+    Domain: String,
+    Advisor: {type: mongoose.Schema.Types.ObjectId}
 })
 
 UserSchema.methods.getJWTToken = function (user) {

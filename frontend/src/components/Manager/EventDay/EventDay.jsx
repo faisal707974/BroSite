@@ -31,8 +31,9 @@ export default function EventDay() {
                 <div className="attendance">
 
                     {participants ? participants.map((obj, index) => {
+                        console.log(obj.Photo)
                         return (
-                            <Card key={index} name={obj.Name} />
+                            <Card key={index} name={obj.Name} photo={obj.Photo?.url} />
                         )
                     }) : null
                     }

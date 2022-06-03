@@ -19,6 +19,8 @@ import Manager from './pages/Manager/Home/Home'
 import Workshop from './pages/Manager/Workshop/Workshop';
 import TasksManagement from './pages/Manager/TasksManagement/TasksManagement';
 import Review from './pages/Brocamp/Review/Review';
+import Students from './pages/Advisor/Students/Students';
+import ProtectedRoute from './Utils/ProtectedRoute';
 
 function App() {
   return (
@@ -30,16 +32,17 @@ function App() {
           <Route path='/login' element={<Home modal={true} />} />
           <Route path='/new_registration' element={<NewRegistration />} />
 
-          <Route path='/brocamp' element={<Brocamp />} />
-          <Route path='/brocamp/tech_tasks' element={<TechTasks/>} />
-          <Route path='/brocamp/review' element={<Review/>} />
+          <Route path='/brocamp' element={<ProtectedRoute children={<Brocamp />} />} />
+          <Route path='/brocamp/tech_tasks' element={<TechTasks />} />
+          <Route path='/brocamp/review' element={<Review />} />
 
-          <Route path='/advisor' element={<Advisor/>} />
+          <Route path='/advisor' element={<Advisor />} />
+          <Route path='/advisor/students' element={<Students />} />
 
-          <Route path='/manager' element={<Manager/>} />
+          <Route path='/manager' element={<Manager />} />
           <Route path='/manager/workshop' element={<Workshop status={'scheduled'} />} />
-          <Route path='/manager/workshop/event_day/:id' element={<Workshop status={'eventDay'}/>} />
-          <Route path='/manager/tasks_management' element={<TasksManagement/>} />
+          <Route path='/manager/workshop/event_day/:id' element={<Workshop status={'eventDay'} />} />
+          <Route path='/manager/tasks_management' element={<TasksManagement />} />
 
           <Route path='/test' element={<Sidebar />} />
         </Routes>

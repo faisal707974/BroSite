@@ -6,23 +6,32 @@ import connectDB from './connection/config.js'
 import GeneralRouter from './routes/General.js'
 import fumigationRouter from './routes/Fumigation.js'
 import brocampRouter from './routes/BroCamp.js'
+import advisorRouter from './routes/Advisor.js'
 import managerRouter from './routes/Manager.js'
 
 const app = express()
 
 
+const corsOptions = {
+    // origin: '*',
+    credentials: true,            //access-control-allow-credentials:true
+    // optionSuccessStatus: 200,
+    origin: "http://localhost:3000"
+}
+
 dotenv.config()
-app.use(cors())
-app.use(express.json())
+app.use(cors(corsOptions))
+app.use(express.json({limit:'50mb'}))
 connectDB()
 
 
 
-app.use('/',GeneralRouter)
-app.use('/fumigation',fumigationRouter)
+app.use('/', GeneralRouter)
+app.use('/fumigation', fumigationRouter)
 app.use('/brocamp', brocampRouter)
-app.use('/manager',managerRouter)
+app.use('/advisor', advisorRouter)
+app.use('/manager', managerRouter)
 
-app.listen(process.env.PORT,()=>{
-    console.log(`server started running in ${process.env.PORT}`) 
+app.listen(process.env.PORT, () => {
+    console.log(`server started running in ${process.env.PORT}`)
 }) 

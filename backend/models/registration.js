@@ -2,40 +2,44 @@ import mongoose from "mongoose";
 import bcrypt from 'bcryptjs'
 
 const registrationSchema = new mongoose.Schema({
-    Name: String,
+    'Name': String,
     'Date of Birth': Date,
-    Gender: String,
-    Address: String,
-    Country: String,
-    State: String,
-    District: String,
-    Email: String,
-    WhatsApp: String,
+    'Gender': String,
+    'Address': String,
+    'Country': String,
+    'State': String,
+    'District': String,
+    'Email': String,
+    'WhatsApp': String,
     'Employment Status': String,
-    Qualification: String,
+    'Qualification': String,
     'Name of College': String,
-    'graduation': Number,
-    password: String,
+    'Graduation': Number,
+    'Password': String,
     'More personal': String,
-    'sps': String,
+    'Sps': String,
     'Motivated by': String,
     'Know about SPS': String,
-    role: String,
-    Batch: String,
-    Week: Number,
-    domain: String
+    'Role': String,
+    'Batch': String,
+    'Week': Number,
+    'Domain': String,
+    'Photo': {
+        'url': String,
+        'id': String
+    }
 })
 
 registrationSchema.methods.matchPassword = async function (enteredPassword, callback) {
-    return await bcrypt.compare(enteredPassword, this.password);
+    return await bcrypt.compare(enteredPassword, this.Password);
 };
 
 registrationSchema.pre("save", function (next) {
-    if (!this.isModified("password")) {
+    if (!this.isModified("Password")) {
         next();
     }
-    bcrypt.hash(this.password, 10, (err, hash) => {
-        this.password = hash
+    bcrypt.hash(this.Password, 10, (err, hash) => {
+        this.Password = hash
         next()
     });
 });

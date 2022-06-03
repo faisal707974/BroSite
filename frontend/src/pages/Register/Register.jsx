@@ -32,9 +32,9 @@ export default function () {
     const [password_match, setPassword_match] = useState()
 
     const onSubmit = async (data) => {
-        if (data.password === data.confirm_password) {
+        if (data.Password === data.confirm_password) {
             setPassword_match()
-            data.photo = croppedPhoto
+            data.Photo = croppedPhoto
             dispatch(registeration(data, toggleModal))
         } else {
             setPassword_match('error')
@@ -180,7 +180,7 @@ export default function () {
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Input type={'password'} name={'password'} label='password' required
+                                        <Input type={'password'} name={'password'} label='Password' required
                                             register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                     <div className="col">

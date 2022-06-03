@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './Brocamp.scss'
+import axios from "axios";
 // import Logo from '../../components/Logo/Logo'
 // import img from '../../assets/images/17.jpg'
 // import TimeNow from "../../components/TimeNow/TimeNow";
@@ -11,15 +12,12 @@ import { BrocampTabs } from "../../../constants/PageTabs/Manager";
 
 export default function Brocamp() {
 
-    
-
-
     return (
         <>
             <div className="brocamp">
-            <Sidebar pages={BrocampTabs} current={'Home'}/>
+                <Sidebar pages={BrocampTabs} current={'Home'} />
 
-            
+
 
 
 
