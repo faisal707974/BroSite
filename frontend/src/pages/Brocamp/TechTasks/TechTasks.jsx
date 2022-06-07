@@ -15,13 +15,11 @@ import { useSelector } from "react-redux";
 
 export default function TechTasks() {
 
-
     const user = useSelector((state) => state.Login.userInfo)
 
     const [questions, setQuestions] = useState()
     const [currQuestion, setCurrQuestion] = useState(0)
     const [currAnswer, setCurrAnswer] = useState()
-    const [answer, setAnswer] = useState()
     const [answers, setAnswers] = useState()
 
     useEffect(() => {
@@ -58,10 +56,11 @@ export default function TechTasks() {
         } else {
             setCurrQuestion(currQuestion + value)
         }
-
+        console.log(value)
         if (value === 1) {
+            console.log(value)
             const data = {
-                Answer: answer || '',
+                Answer: currAnswer || '',
                 User: user._id,
                 Question: questions[currQuestion]._id,
                 Week: user.Week
@@ -76,9 +75,8 @@ export default function TechTasks() {
     }
 
     function answerEventHandler(e) {
-        setAnswer(e)
+        setCurrAnswer(e)
     }
-
 
 
 
@@ -97,7 +95,6 @@ export default function TechTasks() {
                             : null
                         }
                     </div>
-                    <p>{currAnswer}</p>
                     <AceEditor
                         placeholder="Enter your answer here"
                         mode="javascript"

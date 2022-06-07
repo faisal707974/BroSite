@@ -36,14 +36,14 @@ export const deleteLearnedToday = async (req, res) => {
 export const saveAnswers = async (req, res) => {
     console.log('=====================================')
     console.log(req.body)
-    // const response = await answers.findOneAndUpdate({ User: req.body.User, Week: req.body.Week, Question: req.body.Question }, req.body, { upsert: true })
-    // console.log(response)
+    const response = await answers.findOneAndUpdate({ User: req.body.User, Week: req.body.Week, Question: req.body.Question }, req.body, { upsert: true })
+    console.log(response)
 }
 
 export const getAnswers = async (req, res) => {
     console.log(req.params)
     if (req.params.User === 'undefined') {
-
+        console.log('user undefined')
     } else {
         const response = await answers.find({ User: req.params.User, Week: req.params.Week })
         res.status(200)
