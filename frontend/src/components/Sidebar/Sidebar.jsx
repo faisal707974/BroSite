@@ -22,9 +22,9 @@ export default function Sidebar({ pages, current }) {
     function userLogout() {
         dispatch({ type: USER_LOGOUT })
         dispatch(sideBarAction())
+        localStorage.removeItem('userInfo')
     }
 
-    console.log(userInfo)
 
     return (
         <>

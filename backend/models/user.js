@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema({
     Role: String,
     Week: Number,
     Domain: String,
-    Advisor: {type: mongoose.Schema.Types.ObjectId}
+    Advisor: mongoose.Schema.Types.ObjectId
 })
 
 UserSchema.methods.getJWTToken = function (user) {
@@ -16,4 +16,4 @@ UserSchema.methods.getJWTToken = function (user) {
     });
 }
 
-export const User = mongoose.model('User', UserSchema) 
+export const User = mongoose.model('User', UserSchema)  

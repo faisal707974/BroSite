@@ -1,29 +1,52 @@
+import answers from "../models/answersModel.js"
 import learnedToday from "../models/learnedToday.js"
 import registration from "../models/registration.js"
 import TasksModel from "../models/tasksModel.js"
+import { User } from "../models/user.js"
 
-export const getTechTasks = async (req, res)=>{
-    const data = await registration.findOne({_id:req.params.id})
-    const questions = await TasksModel.find({Domain:data.domain, Week:data.Week})
-    res.status(200)
-    res.send(questions)
-} 
+export const getTechTasks = async (req, res) => {
+    if (req.params.id === 'undefined') {
+        console.log('req.params.id is undefined')
+    } else {
+        const data = await User.findOne({ _id: req.params.id })
+        const questions = await TasksModel.find({ Domain: data.Domain, Week: data.Week })
+        res.status(200)
+        res.send(questions)
+    }
+}
 
-export const saveLearnedToday = async (req, res)=>{
-    req.body.day = new Date().setHours(0,0,0,0)
+export const saveLearnedToday = async (req, res) => {
+    req.body.day = new Date().setHours(0, 0, 0, 0)
     console.log(req.user)
     const response = await learnedToday.create(req.body)
     res.status(200)
 }
 
-export const getLearnedToday = async (req, res)=>{
+export const getLearnedToday = async (req, res) => {
     const response = await learnedToday.find()
     res.status(200)
     res.send(response)
 }
 
-export const deleteLearnedToday = async (req, res)=>{
-    console.log('delete me')
-    const response = await learnedToday.deleteOne({_id:req.params.id})
+export const deleteLearnedToday = async (req, res) => {
+    const response = await learnedToday.deleteOne({ _id: req.params.id })
     console.log(response)
+}
+
+export const saveAnswers = async (req, res) => {
+    console.log('=====================================')
+    console.log(req.body)
+    // const response = await answers.findOneAndUpdate({ User: req.body.User, Week: req.body.Week, Question: req.body.Question }, req.body, { upsert: true })
+    // console.log(response)
+}
+
+export const getAnswers = async (req, res) => {
+    console.log(req.params)
+    if (req.params.User === 'undefined') {
+
+    } else {
+        const response = await answers.find({ User: req.params.User, Week: req.params.Week })
+        res.status(200)
+        res.send(response)
+    }
 }

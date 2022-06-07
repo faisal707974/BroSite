@@ -14,7 +14,6 @@ export const loginAction = (data, setErr, navigate) => async (dispatch, getstate
     try {
 
         const response = await axios.post('http://localhost:3001/login', data, config)
-        console.log(response.data.userInfo?.Role)
 
         if (response.data.userInfo) {
             localStorage.setItem( 'userInfo', response.data.userInfo._id )

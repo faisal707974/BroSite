@@ -4,7 +4,6 @@ import bcrypt from "bcryptjs"
 import { sendToken } from "../utils/utils.js"
 
 export const login = async (req, res) => {
-    console.log(req.body)
     let userExist;
     userExist = await User.findOne({ Name: req.body.username })
     if (!userExist) {
@@ -24,10 +23,11 @@ export const login = async (req, res) => {
 }
 
 export const loginedUser = async (req, res) => {
+    // console.log(req.params)
     let userExist;
     userExist = await User.findOne({ _id: req.params.id })
     if (!userExist) {
         userExist = await registration.findOne({ _id: req.params.id })
     }
     res.json({userInfo : userExist})
-}
+}  

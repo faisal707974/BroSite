@@ -1,0 +1,33 @@
+.personal {
+    .details {
+        display: grid;
+        grid-template-columns: 106px 23px auto;
+        pre{
+            font-family: inherit;
+        }
+    }
+
+    .image {
+        display: grid;
+        align-items: center;
+        grid-template-rows: 256px 40px 40px;
+
+        img {
+            width: 200px;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin: auto auto;
+            background-position: right;
+        }
+
+        P {
+            text-align: left;
+            height: 30px;
+            margin: 0;
+
+            i {
+                margin-right: 15px;
+            }
+        }
+    }
+}

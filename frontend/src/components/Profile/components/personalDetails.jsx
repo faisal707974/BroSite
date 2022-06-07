@@ -1,24 +1,46 @@
 import React from "react";
+import { useSelector } from 'react-redux'
+import './personalDetails.scss'
 
-export default function Personal_Details({fields}) {
+export default function Personal_Details({ fields }) {
+
+
+    const user = useSelector(state => state.Login.userInfo)
+    const dob = user['Date of Birth']
+    const format = dob
+    // user['Date of Birth'] = format[0]
+    console.log(format)
+
     return (
         <>
             <div className="row personal">
-                <div className="col-lg-7 titles">
-                    {fields.map((obj, index) => {
-                        return (
-                            <table key={index}>
-                                <tr>
-                                    <td><p>{obj}</p></td>
-                                    <td><p>: Name</p></td>
-                                </tr>
-                            </table>
-                        )
-                    })}
+                <div className="col-lg-7 details">
+
+                    <p>Name</p>
+                    :<p>{user.Name}</p>
+
+                    <p>Date of Birth</p>
+                    :<p>{user['Date of Birth']}</p>
+
+                    <p>Gender</p>
+                    :<p>{user.Gender}</p>
+
+                    <p>Address</p>
+                    :<pre>{user.Address}</pre>
+
+                    <p>District</p>
+                    :<p>{user.District}</p>
+
+                    <p>State</p>
+                    :<p>{user.State}</p>
+
+                    <p>Country</p>
+                    :<p>{user.Country}</p>
+
                 </div>
                 <div className="col image">
-                    <img src="https://wtspdp.com/wp-content/uploads/2021/04/Whatsapp-dp-statuis-dp-ote3-23-1024x1024.jpg?is-pending-load=1" alt="" />
-                    <p><i className="fas fa-envelope"></i>faisalmuhammed@gmail.com</p>
+                    <img src={user.Photo.url} alt="" />
+                    <p><i className="fas fa-envelope"></i>{user.Email}</p>
                     <p><i className="fas fa-phone"></i>+91 8891707974</p>
                 </div>
             </div>

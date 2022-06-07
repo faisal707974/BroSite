@@ -33,7 +33,7 @@ function App() {
           <Route path='/new_registration' element={<NewRegistration />} />
 
           <Route path='/brocamp' element={<ProtectedRoute children={<Brocamp />} />} />
-          <Route path='/brocamp/tech_tasks' element={<TechTasks />} />
+          <Route path='/brocamp/tech_tasks' element={<ProtectedRoute children={<TechTasks />} />} />
           <Route path='/brocamp/review' element={<Review />} />
 
           <Route path='/advisor' element={<Advisor />} />

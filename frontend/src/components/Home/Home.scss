@@ -1,0 +1,117 @@
+.Home {
+    .platform {
+        // background-color: greenyellow;
+        width: 99%;
+        height: 89vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow-x: hidden;
+        position: relative;
+
+        .post {
+
+            height: 80%;
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 1px 1px 30px 10px gainsboro;
+            // outline: 16px solid rgba($color: #fff, $alpha: .5);
+            transition: all .5s ease-in-out;
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+        }
+
+        .post:nth-child(1) {
+            background-color: red;
+        }
+
+        .post:nth-child(2) {
+            background-color: green;
+        }
+
+        .post:nth-child(3) {
+            background-color: blue;
+        }
+
+        .post:nth-child(4) {
+            background-color: magenta;
+        }
+
+        .post:nth-child(5) {
+            background-color: cyan;
+        }
+
+        .post:nth-child(6) {
+            background-color: yellow;
+        }
+
+        .post:nth-child(7) {
+            background-color: black;
+        }
+
+        .post1 {
+            // background-color: deeppink;
+            position: absolute;
+            left: -15px;
+            height: 26%;
+            width: 16%;
+            z-index: 2;
+            visibility: hidden;
+        }
+
+        .post2 {
+            // background-color: darkcyan;
+            position: absolute;
+            left: 56px;
+            height: 40%;
+            width: 25%;
+            z-index: 3;
+        }
+
+        .post3 {
+            // background-color: deeppink;
+            position: absolute;
+            left: 176px;
+            height: 53%;
+            width: 33%;
+            z-index: 4;
+        }
+
+        .post4 {
+            // background-color: var(--color4);
+            z-index: 5;
+        }
+
+        .post5 {
+            // background-color: deeppink;
+            position: absolute;
+            right: 176px;
+            height: 53%;
+            width: 33%;
+            z-index: 4;
+        }
+
+        .post6 {
+            // background-color: darkcyan;
+            position: absolute;
+            right: 56px;
+            height: 40%;
+            width: 25%;
+            z-index: 3;
+        }
+
+        .post7 {
+            // background-color: deeppink;
+            position: absolute;
+            right: -15px;
+            height: 26%;
+            width: 16%;
+            z-index: 2;
+            visibility: hidden;
+        }
+    }
+}

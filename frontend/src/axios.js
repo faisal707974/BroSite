@@ -8,8 +8,8 @@ const config = {
     }
 }
 
-const instance = axios.create({
+const axiosInstance = axios.create({
     baseUrl: 'http://localhost:3001/', config
 })
 
-export default instance
+export default axiosInstance

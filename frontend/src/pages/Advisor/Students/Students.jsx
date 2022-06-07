@@ -4,7 +4,7 @@ import Sidebar from "../../../components/Sidebar/Sidebar";
 import { AdvisorTabs } from "../../../constants/PageTabs/Manager";
 import PageHead from "../../../components/General/PageHead/PageHead";
 import axios from "axios";
-import instance from "../../../axios";
+import axiosInstance from "../../../axios";
 
 export default function Students() {
 
@@ -12,7 +12,7 @@ export default function Students() {
     useEffect(() => {
         async function getStudents() {
 
-            const response = await instance.get('/advisor/students')
+            const response = await axiosInstance.get('/advisor/students')
             setStudents(response.data)
         }
         getStudents()
