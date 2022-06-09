@@ -4,7 +4,6 @@ import registration from "../models/registration.js";
 import TasksModel from "../models/tasksModel.js";
 
 export const newBatch = async (req, res) => {
-    console.log(req.body.Date + '   -batch creation date')
     const response = await newBatchModel.create(req.body)
 }
 

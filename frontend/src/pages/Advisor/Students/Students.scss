@@ -12,10 +12,11 @@
             box-shadow: 1px 1px 20px 5px gray;
             border-radius: 10px;
 
-            tbody{
-                tr{
+            tbody {
+                tr {
                     height: 60px;
-                    &:hover{
+
+                    &:hover {
                         background-color: rgb(225, 226, 226);
                     }
                 }
@@ -33,18 +34,52 @@
             }
 
             td {
-            
                 img {
                     margin: 0px;
                     width: 50px;
                     border-radius: 50%;
                 }
+                select{
+                    border: none;
+                }
             }
 
             th:nth-child(1),
-            td:nth-child(1){
+            td:nth-child(1) {
                 width: 70px;
             }
+
+            td:last-child {
+                color: blue;
+                text-decoration: underline;
+                cursor: pointer;
+            }
         }
+    }
+}
+
+.PendingTopicsAdvisor {
+    .modal-dialog {
+        // max-width: 1000px;
+
+        .modal-content {
+            height: 550px;
+            border-radius: 10px;
+        }
+    }
+
+    input {
+        border: rgb(221, 198, 243) 2px solid;
+    }
+
+    input:focus {
+        border: blue 2px solid !important;
+    }
+
+    i {
+        position: relative;
+        right: -438px;
+        top: -30px;
+        cursor: pointer;
     }
 }

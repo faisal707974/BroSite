@@ -1,5 +1,6 @@
 import answers from "../models/answersModel.js"
 import learnedToday from "../models/learnedToday.js"
+import pendingTopics from "../models/pendingTopics.js"
 import registration from "../models/registration.js"
 import TasksModel from "../models/tasksModel.js"
 import { User } from "../models/user.js"
@@ -17,7 +18,6 @@ export const getTechTasks = async (req, res) => {
 
 export const saveLearnedToday = async (req, res) => {
     req.body.day = new Date().setHours(0, 0, 0, 0)
-    console.log(req.user)
     const response = await learnedToday.create(req.body)
     res.status(200)
 }
@@ -34,14 +34,11 @@ export const deleteLearnedToday = async (req, res) => {
 }
 
 export const saveAnswers = async (req, res) => {
-    console.log('=====================================')
-    console.log(req.body)
     const response = await answers.findOneAndUpdate({ User: req.body.User, Week: req.body.Week, Question: req.body.Question }, req.body, { upsert: true })
     console.log(response)
 }
 
 export const getAnswers = async (req, res) => {
-    console.log(req.params)
     if (req.params.User === 'undefined') {
         console.log('user undefined')
     } else {
@@ -50,3 +47,7 @@ export const getAnswers = async (req, res) => {
         res.send(response)
     }
 }
+
+// export const getPendingTopics = ()=>{
+//     const response = await pendingTopics.find()
+// }

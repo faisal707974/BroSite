@@ -4,16 +4,20 @@ import Sidebar from "../../../components/Sidebar/Sidebar";
 import { BrocampTabs } from "../../../constants/PageTabs/Manager";
 import PageHead from "../../../components/General/PageHead/PageHead";
 import axios from "axios";
+import axiosInstance from "../../../axios";
+import { useSelector } from "react-redux";
 
 export default function Review() {
     const [section, setSection] = useState(1)
 
-    let PendingTopics = [
-        ' weekly tasks',
-        'html',
-        'css',
-        'z-index'
-    ]
+    const user = useSelector((state) => state.Login.userInfo)
+
+    // let PendingTopics = [
+    //     ' weekly tasks',
+    //     'html',
+    //     'css',
+    //     'z-index'
+    // ]
 
     const [input, setInput] = useState()
     const learnedTodayInput = useRef()
@@ -35,12 +39,22 @@ export default function Review() {
         const response = await axios.delete('http://localhost:3001/brocamp/review/learnedtoday/' + id)
     }
 
-    useEffect(()=>{
-        async function getLearnedThisWeek(){
+    useEffect(() => {
+        async function getLearnedThisWeek() {
             // const resoponse = await axios.get('http://localhost:3001/brocamp/review/learnedThisWeek')
         }
         getLearnedThisWeek()
     })
+
+    const [pendingTopics, setPendingTopics] = useState()
+    useEffect(() => {
+        async function getPendingTopics() {
+            const response = await axiosInstance.get('/brocamp/review/pendingtopics/' + user._id + '/' + user.Week)
+            setPendingTopics(response.data)
+        }
+        getPendingTopics()
+    })
+    // console.log(pendingTopics)
 
     const [learnedThisWeek, setLearnedThisWeek] = useState()
 
@@ -68,11 +82,13 @@ export default function Review() {
                             {
                                 section === 1 ?
                                     <ol>
-                                        <li>one</li>
-                                        <li>two</li>
-                                        <li>two</li>
-                                        <li>two</li>
-                                        <li>two</li>
+                                        {pendingTopics &&
+                                            pendingTopics.map((obj, index) => {
+                                                return (
+                                                    <li key={index}>{obj.Topic}</li>
+                                                )
+                                            })
+                                        }
                                     </ol>
                                     : section === 2 ?
                                         <div className="learnedToday">
