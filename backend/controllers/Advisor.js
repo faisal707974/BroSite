@@ -21,6 +21,6 @@ export const getPendingTopics = async (req, res) => {
 export const updateWeek = async (req, res) => {
     const response = await User.updateOne({ _id: req.params.id }, { $set: { Week: req.params.week } })
     res.status(200)
-    res.send(response)
+    res.send(response)  
 
 }

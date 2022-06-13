@@ -6,7 +6,7 @@ import Cropper from '../Cropper/Cropper';
 export default function ({ imgSrc, setImgSrc, setCroppedPhoto }) {
 
     const [cropper, setCropper] = useState(false)
-    const [result, setResult] = useState()
+    const [result, setResult] = useState('https://raw.githubusercontent.com/OlgaKoplik/CodePen/master/profile.jpg')
     const [photoErr, setPhotoErr] = useState()
 
     const photoUpload = e => {

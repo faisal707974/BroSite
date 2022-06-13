@@ -4,58 +4,73 @@
     /* background:url('https://devblogs.microsoft.com/xamarin/wp-content/uploads/sites/44/2020/03/CssSample1.png'); */
     background: linear-gradient(60deg, var(--color1), var(--color2));
     background-size: cover;
+    padding-bottom: 10px;
 }
+
 .Register .registration-form {
     width: 80%;
 }
+
 .Register .form-div {
     border-radius: 25px 25px 25px 25px;
     background-color: rgb(255, 255, 255);
-    margin-bottom:100px!important;
+    margin-bottom: 100px !important;
 }
-.Register .header{
+
+.Register .header {
     height: 100px;
 }
-.Register input,.Register textarea{
+
+.Register input,
+.Register textarea {
     margin-bottom: 30px;
-    border:none;
+    border: none;
     border-bottom: 1px solid black;
 }
-.Register textarea{
-    height: 100px!important;
+
+.Register textarea {
+    height: 100px !important;
     resize: none;
-    max-lines: 3;   
+    max-lines: 3;
 }
-.form-control:focus{
-    box-shadow: none!important;
-    border-color: #64d488!important;
-    border-bottom: 3px solid ;
+
+.form-control:focus {
+    box-shadow: none !important;
+    border-color: #64d488 !important;
+    border-bottom: 3px solid;
 }
-.header .logo{
+
+.header .logo {
     margin: 20px;
     padding-left: 14%;
 }
-.form-div h3{
-    color:#ab653a;
+
+.form-div h3 {
+    color: #ab653a;
     font-size: 16pt;
     font-weight: bold;
 }
-.Register .profilePic{
+
+.Register .profilePic {
     position: absolute;
     top: 30px;
     right: 300px;
 }
-.Register hr{
+
+.Register hr {
     border-top: 2px dashed #bbb;
 
 }
-.Register p{
+
+.Register p {
     display: inline;
 }
-.Register .submit-button{
+
+.Register .submit-button {
     display: inline;
     margin-left: 263px;
 }
+
 .tooltiptext {
     width: 120px;
     /* background-color: rgb(207, 68, 68); */
@@ -70,6 +85,7 @@
     left: 7%;
     margin-left: -60px;
 }
+
 .tooltiptext::after {
     content: "";
     position: absolute;

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import './Home.scss'
+import { images } from "../../Utils/data";
 
 export default function Home() {
 
-    const images = [
+    const image = [
         {
             image: 'https://backlightblog.com/images/2021/04/landscape-photography-header-2000x1310.jpg',
             serial: 1
@@ -42,47 +43,93 @@ export default function Home() {
 
     const [sevenImages, setSevenImages] = useState()
     useEffect(() => {
-        const response = images.slice(0, 7)
+        const response = images.slice(0, 8)
         setSevenImages(response)
     }, [])
-
 
     const [scroll, setScroll] = useState([1, 2, 3, 4, 5, 6, 7])
 
     const [topLevel, setTopLevel] = useState(images.length - 1)
     const [downLevel, setDownLevel] = useState(0)
 
+    const [currEnd, setCurrEnd] = useState(7)
+    const [currStart, setCurrStart] = useState(7)
+
     const scrollEvent = (e) => {
         if (e.deltaY > 0) {
+
             let value = scroll.shift()
             setScroll((state) => [...state, value])
 
-            // sevenImages.pop()
-            // setSevenImages((state => [images[topLevel], ...state]))
-            // if (topLevel === 0) {
-            //     setTopLevel(images.length - 1)
-            // } else {
-            //     setTopLevel(state => state - 1)
-            // }
-            // console.log(sevenImages[0].serial)
+            sevenImages.splice(currStart, 1)
+            sevenImages.splice(currStart, 0, images[topLevel])
+
+
+            if (currStart === 0) {
+                setCurrStart(7)
+            } else {
+                setCurrEnd(currEnd - 1)
+                setCurrStart(currStart - 1)
+            }
+
+            if (currStart === -7) {
+                setCurrStart(0)
+            }
+
+
+
+
+
+
+            if (topLevel === 0) {
+                setTopLevel(images.length - 1)
+            } else {
+                setTopLevel(topLevel - 1)
+            }
+
+
+
+
 
         } else {
+
             let value = scroll.pop()
             setScroll((state) => [value, ...state])
 
-            // sevenImages.shift()
-            // setSevenImages((state => [...state, images[downLevel]]))
-            // if (downLevel === images.length-1) {
-            //     setDownLevel(0)
-            // } else {
-            //     setDownLevel(state => state + 1)
-            // }
-            // console.log(sevenImages[0].serial)
+            sevenImages.splice(currEnd, 1)
+            sevenImages.splice(currEnd, 0, images[downLevel])
+
+            if (currStart === 6) {
+                setCurrStart(0)
+            } else {
+                setCurrStart(currStart + 1)
+                setCurrEnd(currEnd + 1)
+            }
+            if (currEnd === 12) {
+                setCurrEnd(6)
+            }
+
+
+
+
+
+            if (downLevel === images.length - 1) {
+                setDownLevel(0)
+            } else {
+                setDownLevel(downLevel + 1)
+            }
+
+
+
 
         }
     }
 
-    // console.log({ sevenImages })
+    // console.log({ currStart })
+    // console.log({ currEnd })
+
+    // console.log({ topLevel })
+    console.log({ downLevel })
 
     return (
         <>
@@ -90,32 +137,32 @@ export default function Home() {
                 {sevenImages &&
                     <div className="platform" onWheel={scrollEvent} >
                         <div className={"post post" + (scroll[0])}>
-                            <img src={sevenImages[0].image} alt="" />
-                            <p>{sevenImages[0].serial}</p>
+                            <img src={sevenImages[0]} alt="" />
+                            <p></p>
                         </div>
                         <div className={"post post" + (scroll[1])}>
-                            <img src={sevenImages[1].image} alt="" />
-                            <p>{sevenImages[1].serial}</p>
+                            <img src={sevenImages[1]} alt="" />
+                            <p></p>
                         </div>
                         <div className={"post post" + (scroll[2])}>
-                            <img src={sevenImages[2].image} alt="" />
-                            <p>{sevenImages[2].serial}</p>
+                            <img src={sevenImages[2]} alt="" />
+                            <p></p>
                         </div>
                         <div className={"post post" + (scroll[3])}>
-                            <img src={sevenImages[3].image} alt="" />
-                            <p>{sevenImages[3].serial}</p>
+                            <img src={sevenImages[3]} alt="" />
+                            <p></p>
                         </div>
                         <div className={"post post" + (scroll[4])}>
-                            <img src={sevenImages[4].image} alt="" />
-                            <p>{sevenImages[4].serial}</p>
+                            <img src={sevenImages[4]} alt="" />
+                            <p></p>
                         </div>
                         <div className={"post post" + (scroll[5])}>
-                            <img src={sevenImages[5].image} alt="" />
-                            <p>{sevenImages[5].serial}</p>
+                            <img src={sevenImages[5]} alt="" />
+                            <p></p>
                         </div>
                         <div className={"post post" + (scroll[6])}>
-                            <img src={sevenImages[6].image} alt="" />
-                            <p>{sevenImages[6].serial}</p>
+                            <img src={sevenImages[6]} alt="" />
+                            <p></p>
                         </div>
                     </div>
                 }
