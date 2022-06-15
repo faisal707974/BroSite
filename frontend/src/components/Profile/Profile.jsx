@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './Profile.scss'
 import { Modal } from "react-bootstrap";
 import Personal_Details from "./components/personalDetails";
+import LeaveRequest from "./components/LeaveRequest";
 
 export default function Profile({ profileModal, setProfileModal }) {
 
@@ -44,7 +45,8 @@ export default function Profile({ profileModal, setProfileModal }) {
                         <div className="col">
                             {option === 'Personal details' ?
                                 <Personal_Details fields={fields} />
-                                : null}
+                                : option === 'Leave request' ?
+                                    <LeaveRequest /> : null}
                         </div>
                     </div>
                 </Modal.Body>
