@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/static/css/main.bc760f53.css",
+    "main.js": "/static/js/main.cd2835cb.js",
+    "static/media/ProgressPersonalUse-EaJdz.ttf": "/static/media/ProgressPersonalUse-EaJdz.93e9d2c9e1e0c7b13803.ttf",
+    "static/media/10.jpg": "/static/media/10.7a85ccf276a1242c7cf0.jpg",
+    "static/media/PTSerif-Italic.ttf": "/static/media/PTSerif-Italic.d90ee47f324014fc2bae.ttf",
+    "static/media/PTSerif-Regular.ttf": "/static/media/PTSerif-Regular.6271ca9bf4c029802fc0.ttf",
+    "static/media/PTSerif-Bold.ttf": "/static/media/PTSerif-Bold.baec85e607f452497274.ttf",
+    "static/media/PTSerif-BoldItalic.ttf": "/static/media/PTSerif-BoldItalic.318ae97b9a42b7a6d6ba.ttf",
+    "static/media/4.jfif": "/static/media/4.a08817a472bc92e85e5d.jfif",
+    "static/media/1.jfif": "/static/media/1.92ba8359205ce222cea5.jfif",
+    "static/media/12.jfif": "/static/media/12.16857366ab3e0ed10759.jfif",
+    "static/media/13.jfif": "/static/media/13.2941c47afba815af25d4.jfif",
+    "static/media/2.jfif": "/static/media/2.87f80b4e976d93b57c64.jfif",
+    "static/media/6.jfif": "/static/media/6.59bd7ecc1ac359c0fe8e.jfif",
+    "static/media/9.jfif": "/static/media/9.2e013ff5a9b74a9bb138.jfif",
+    "static/media/11.jfif": "/static/media/11.e4947e15423d9d1bd9e1.jfif",
+    "static/media/8.jfif": "/static/media/8.f98b757ae55499e3021a.jfif",
+    "static/media/5.jfif": "/static/media/5.709b5817863f6fcced11.jfif",
+    "static/media/3.jfif": "/static/media/3.6fb56d29c95ac7a30bb7.jfif",
+    "static/media/10.jfif": "/static/media/10.a83d60ebf75ff777ce1f.jfif",
+    "static/media/Neuton-Regular.ttf": "/static/media/Neuton-Regular.44078cc1172ff0b69eb3.ttf",
+    "static/media/Neuton-Italic.ttf": "/static/media/Neuton-Italic.09f4089dea167375599e.ttf",
+    "static/media/7.jfif": "/static/media/7.e7bd61c7a919817b0bcb.jfif",
+    "static/media/Neuton-ExtraBold.ttf": "/static/media/Neuton-ExtraBold.b775f7c5e6572b021333.ttf",
+    "static/media/Neuton-Bold.ttf": "/static/media/Neuton-Bold.b3e47bdf5c8dcc33f8e8.ttf",
+    "static/media/Neuton-Light.ttf": "/static/media/Neuton-Light.6422ae57085fa5b2566f.ttf",
+    "static/media/Neuton-ExtraLight.ttf": "/static/media/Neuton-ExtraLight.a68c89b175c0e462c835.ttf",
+    "static/media/11.jpg": "/static/media/11.de8c4cd118892ed95a68.jpg",
+    "static/media/OleoScriptSwashCaps-Regular.ttf": "/static/media/OleoScriptSwashCaps-Regular.804c85109953823c7cef.ttf",
+    "static/media/OleoScriptSwashCaps-Bold.ttf": "/static/media/OleoScriptSwashCaps-Bold.40b6a94577debd3a717c.ttf",
+    "static/media/19.png": "/static/media/19.414909a30a36a2fc749b.png",
+    "static/media/13.png": "/static/media/13.109750642d0526c9ccc4.png",
+    "index.html": "/index.html",
+    "main.bc760f53.css.map": "/static/css/main.bc760f53.css.map",
+    "main.cd2835cb.js.map": "/static/js/main.cd2835cb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bc760f53.css",
+    "static/js/main.cd2835cb.js"
+  ]
+}
