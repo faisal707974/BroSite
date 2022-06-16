@@ -1,5 +1,5 @@
 import { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FAIL, USER_LOGIN_RESET } from '../constants/loginConstant'
-import axios from 'axios'
+import axiosInstance from '../../axios'
 
 export const loginAction = (data, setErr, navigate) => async (dispatch, getstate) => {
     dispatch({ type: USER_LOGIN_REQUEST })
@@ -13,7 +13,7 @@ export const loginAction = (data, setErr, navigate) => async (dispatch, getstate
     }
     try {
 
-        const response = await axios.post('http://localhost:3001/login', data, config)
+        const response = await axiosInstance.post('http://localhost:3001/login', data)
 
         if (response.data.userInfo) {
             localStorage.setItem( 'userInfo', response.data.userInfo._id )
