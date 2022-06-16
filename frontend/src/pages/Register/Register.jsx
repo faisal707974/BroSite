@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { registeration } from '../../redux/actions/registerAction'
 import default_image from '../../assets/images/11.jpg'
 import axios from 'axios'
+import axiosInstance from '../../axios'
 
 
 export default function () {
@@ -45,7 +46,7 @@ export default function () {
     const [Batches, setBatches] = useState([])
     useEffect(() => {
         async function getBatchDetails() {
-            const response = await axios.get('http://localhost:3001/manager/schedules')
+            const response = await axiosInstance.get('/manager/schedules')
             return new Promise((resolve) => resolve(response.data))
         }
         getBatchDetails().then((res) => {

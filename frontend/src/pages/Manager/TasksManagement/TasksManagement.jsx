@@ -7,6 +7,7 @@ import { Modal } from "react-bootstrap";
 import Input from "../../../components/RegistrationInput/RegistrationInput";
 import { useForm } from 'react-hook-form';
 import axios from 'axios'
+import axiosInstance from "../../../axios";
 
 export default function TasksManagement() {
 
@@ -15,7 +16,7 @@ export default function TasksManagement() {
     const { register, handleSubmit, formState: { errors } } = useForm({ criteriaMode: "all" });
 
     async function onSubmit(data) {
-        const response = await axios.post('http://localhost:3001/manager/tasks', data)
+        const response = await axiosInstance.post('/manager/tasks', data)
         console.log({ response })
     }
 
@@ -25,7 +26,7 @@ export default function TasksManagement() {
 
     useEffect(() => {
         async function getTasks() {
-            const response = await axios.get('http://localhost:3001/manager/tasks')
+            const response = await axiosInstance.get('/manager/tasks')
             setTasks(response.data)
         }
         getTasks()

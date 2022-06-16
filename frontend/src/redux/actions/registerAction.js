@@ -1,4 +1,5 @@
 import axios from 'axios'
+import axiosInstance from '../../axios'
 import { USER_REGISTER_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS } from "../constants/registerConstant"
 
 
@@ -39,7 +40,7 @@ export const registeration = (data, toggleModal) => async (dispatch, getstate) =
     try {
         const config = { headers: { 'Content-Type': 'application/json' } }
         console.log(data)
-        const { response } = await axios.post('http://localhost:3001/registration', data)
+        const { response } = await axiosInstance.post('/registration', data)
 
         dispatch({ type: USER_REGISTER_SUCCESS, payload: response })
         toggleModal()

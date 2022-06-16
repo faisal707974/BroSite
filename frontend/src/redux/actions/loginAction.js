@@ -14,6 +14,7 @@ export const loginAction = (data, setErr, navigate) => async (dispatch, getstate
     try {
 
         const response = await axiosInstance.post('/login', data)
+        console.log(response)
 
         if (response.data.userInfo) {
             localStorage.setItem( 'userInfo', response.data.userInfo._id )
@@ -44,7 +45,7 @@ export const loginAction = (data, setErr, navigate) => async (dispatch, getstate
         dispatch({ type: USER_LOGIN_SUCCESS, payload: response.data })
 
     } catch (error) {
-        // console.log(error)
+        console.log({error})
         switch (error.response?.status) {
             case 401:
                 setErr(error.response.data.message)

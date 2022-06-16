@@ -4,12 +4,12 @@ const config = {
     withCredentials: true,
     headers: {
         'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json' 
     }
 }
 
 const axiosInstance = axios.create({
-    baseUrl: 'http://100.24.52.152/', config
+    baseUrl: 'http://localhost:3001', config  
 })
 
 export default axiosInstance

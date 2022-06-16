@@ -23,25 +23,25 @@ export default function Review() {
     const learnedTodayInput = useRef()
     async function saveTask() {
         learnedTodayInput.current.value = ''
-        const response = await axios.post('http://localhost:3001/brocamp/review/learnedtoday', { topic: input })
+        const response = await axiosInstance.post('/brocamp/review/learnedtoday', { topic: input })
     }
 
     const [learnedToday, setLearnedToday] = useState()
     useEffect(() => {
         async function getLearnedToday() {
-            const response = await axios.get('http://localhost:3001/brocamp/review/learnedtoday')
+            const response = await axiosInstance.get('/brocamp/review/learnedtoday')
             setLearnedToday(response.data)
         }
         getLearnedToday()
     })
 
     async function deleteLearnedToday(id) {
-        const response = await axios.delete('http://localhost:3001/brocamp/review/learnedtoday/' + id)
+        const response = await axiosInstance.delete('/brocamp/review/learnedtoday/' + id)
     }
 
     useEffect(() => {
         async function getLearnedThisWeek() {
-            // const resoponse = await axios.get('http://localhost:3001/brocamp/review/learnedThisWeek')
+            // const resoponse = await axiosInstance.get('/brocamp/review/learnedThisWeek')
         }
         getLearnedThisWeek()
     })

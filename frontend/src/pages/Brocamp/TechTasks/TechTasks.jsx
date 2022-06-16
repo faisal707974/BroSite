@@ -24,7 +24,7 @@ export default function TechTasks() {
 
     useEffect(() => {
         async function getTechTasks() {
-            const response = await axios.get('http://localhost:3001/brocamp/tech_tasks/' + user?._id)
+            const response = await axiosInstance.get('/brocamp/tech_tasks/' + user?._id)
             setQuestions(response.data)
         }
         getTechTasks()

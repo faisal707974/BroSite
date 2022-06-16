@@ -4,6 +4,7 @@ import Card from "../Card/Card";
 
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import axiosInstance from "../../../axios";
 
 export default function EventDay() {
     const navigate = useNavigate()
@@ -15,7 +16,7 @@ export default function EventDay() {
     useEffect(() => {
 
         async function getParticipants() {
-            const response = await axios.get('http://localhost:3001/manager/participants/' + current_workshop_id.id)
+            const response = await axiosInstance.get('/manager/participants/' + current_workshop_id.id)
             setParticipants(response.data)
         }
         getParticipants()

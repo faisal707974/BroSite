@@ -12,6 +12,7 @@ import img from '../../../assets/images/19.png'
 import { useDispatch, useSelector } from "react-redux";
 
 import { save_current_workshop_id_to_store } from "../../../Utils/Manager";
+import axiosInstance from "../../../axios";
 
 export default function ScheduledWrkshp() {
 
@@ -46,14 +47,14 @@ export default function ScheduledWrkshp() {
     const { register, handleSubmit, formState: { errors } } = useForm({ criteriaMode: "all" });
     const onSubmit = async (data) => {
         setModal(false)
-        const response = await axios.post('http://localhost:3001/manager/newBatch', data)
+        const response = await axiosInstance.post('/manager/newBatch', data)
     }
 
     // --------------------------------------------------------------- getting schedules from backend
 
     useEffect(() => {
         const getSchedules = async () => {
-            const response = await axios.get('http://localhost:3001/manager/schedules')
+            const response = await axiosInstance.get('/manager/schedules')
             if (response.data.length != 0) {
                 setSchedules(response.data)
             } else {
@@ -89,7 +90,7 @@ export default function ScheduledWrkshp() {
 
     async function deleteSchedule() {
         const id = schedules[currSchedule]._id
-        const response = await axios.post('http://localhost:3001/manager/delete_schedules', {}, { params: { id } })
+        const response = await axiosInstance.post('/manager/delete_schedules', {}, { params: { id } })
         if (response.status == 200) {
             navigate('/manager/workshop')
         }
