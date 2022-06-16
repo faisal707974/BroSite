@@ -9,7 +9,7 @@ const config = {
 }
 
 const axiosInstance = axios.create({
-    baseUrl: 'http://localhost:3001/', config
+    baseUrl: 'http://100.24.52.152/', config
 })
 
 export default axiosInstance
