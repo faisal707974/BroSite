@@ -13,7 +13,7 @@ export const loginAction = (data, setErr, navigate) => async (dispatch, getstate
     }
     try {
 
-        const response = await axiosInstance.post('http://localhost:3001/login', data)
+        const response = await axiosInstance.post('/login', data)
 
         if (response.data.userInfo) {
             localStorage.setItem( 'userInfo', response.data.userInfo._id )
