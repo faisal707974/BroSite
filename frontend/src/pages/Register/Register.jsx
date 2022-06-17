@@ -106,41 +106,41 @@ export default function () {
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Input type={'date'} name={'dob'} label='Date of Birth' required value='2022-12-06'
+                                        <Input type={'date'} name={'dob'} label='Date of Birth' required 
                                             register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                     <div className="col">
-                                        <Select name={'Gender'} required value='Female'
+                                        <Select name={'Gender'} required 
                                             register={register} errors={errors} rules={{ required: true }} options={['Male', 'Female']} />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Input as={'textarea'} type={'text'} name={'address'} label='Address' required value='address'
+                                        <Input as={'textarea'} type={'text'} name={'address'} label='Address' required 
                                             register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Input type={'text'} name={'country'} label='Country' required value='country'
+                                        <Input type={'text'} name={'country'} label='Country' required 
                                             register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                     <div className="col">
-                                        <Input type={'text'} name={'state'} label='State' required value='state'
+                                        <Input type={'text'} name={'state'} label='State' required 
                                             register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                     <div className="col">
-                                        <Input type={'text'} name={'district'} label='District' required value='district'
+                                        <Input type={'text'} name={'district'} label='District' required 
                                             register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Input type={'text'} name={'Email'} label='Email' required value='alskjd@asdlkf.com'
+                                        <Input type={'text'} name={'Email'} label='Email' required 
                                             register={register} errors={errors} rules={{ required: true, pattern: /^[a-z]+@[a-z]+\.com$/ }} />
                                     </div>
                                     <div className="col">
-                                        <Input type={'text'} name={'whatsapp'} label='WhatsApp' required value='whatsapp'
+                                        <Input type={'text'} name={'whatsapp'} label='WhatsApp' required 
                                             register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                 </div>
@@ -156,11 +156,11 @@ export default function () {
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Input type={'text'} name={'college'} label='Name of College' required value='college'
+                                        <Input type={'text'} name={'college'} label='Name of College' required 
                                             register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                     <div className="col">
-                                        <Input type={'text'} name={'year of graduation'} label='graduation' required value='2344'
+                                        <Input type={'text'} name={'year of graduation'} label='graduation' required 
                                             register={register} errors={errors} rules={{ required: true, pattern: /^[0-9]{4}$/ }} />
                                     </div>
                                 </div>
@@ -194,25 +194,25 @@ export default function () {
                                 <br />
                                 <div className="row">
                                     <div className="col">
-                                        <Input as={'textarea'} type={'text'} name={'you'} label='More personal' required value='you'
+                                        <Input as={'textarea'} type={'text'} name={'you'} label='More personal' required
                                             register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Input as={'textarea'} type={'text'} name={'sps'} label='sps' required value='sps'
+                                        <Input as={'textarea'} type={'text'} name={'sps'} label='sps' required
                                             register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Input as={'textarea'} type={'text'} name={'motivation'} label='Motivated by' required value='motivation'
+                                        <Input as={'textarea'} type={'text'} name={'motivation'} label='Motivated by' required
                                             register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col">
-                                        <Input as={'textarea'} type={'text'} name={'know'} label='Know about SPS' required value='know'
+                                        <Input as={'textarea'} type={'text'} name={'know'} label='Know about SPS' required
                                             register={register} errors={errors} rules={{ required: true }} />
                                     </div>
                                 </div>
